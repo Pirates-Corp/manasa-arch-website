@@ -3,12 +3,4 @@ import { defineConfig } from "vite";
 
 export default defineConfig({
   plugins: [remix()],
-  css: {
-    preprocessorOptions: {
-      scss: {
-        api: 'modern-compiler', // or "modern"
-        additionalData: `@use "../../styles/global" as *;`
-      }
-    }
-  }
 });
