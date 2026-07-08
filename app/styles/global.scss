@@ -19,7 +19,8 @@
   --shadow-card: 0 18px 44px rgba(1, 33, 105, 0.12);
   --radius-card: 8px;
   --font-display: Georgia, "Times New Roman", serif;
-  --font-body: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-body: Inter, ui-sans-serif, system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
 * {
@@ -37,8 +38,11 @@ body {
   margin: 0;
   padding: 0;
   color: var(--color-ink);
-  background:
-    radial-gradient(circle at top left, rgba(200, 145, 44, 0.08), transparent 26rem),
+  background: radial-gradient(
+      circle at top left,
+      rgba(200, 145, 44, 0.08),
+      transparent 26rem
+    ),
     linear-gradient(180deg, var(--color-surface) 0%, #fffaf0 48%, #ffffff 100%);
   font-family: var(--font-body);
   line-height: 1.65;
@@ -81,9 +85,9 @@ main {
 
 .section--blue {
   color: var(--color-ink-inverse);
-  background:
-    linear-gradient(rgba(1, 33, 105, 0.94), rgba(1, 33, 105, 0.94)),
-    url("https://commons.wikimedia.org/wiki/Special:Redirect/file/ParthasarathyTempleGopuram.JPG?width=1600") center / cover;
+  background: linear-gradient(rgba(1, 33, 105, 0.94), rgba(1, 33, 105, 0.94)),
+    url("https://commons.wikimedia.org/wiki/Special:Redirect/file/ParthasarathyTempleGopuram.JPG?width=1600")
+      center / cover;
 }
 
 .container {
@@ -154,56 +158,16 @@ main {
   align-items: start;
 }
 
-.hero {
-  position: relative;
-  min-height: calc(100vh - 78px);
-  display: grid;
-  align-items: end;
-  color: var(--color-ink-inverse);
-  background:
-    linear-gradient(90deg, rgba(1, 22, 70, 0.92) 0%, rgba(1, 33, 105, 0.72) 48%, rgba(1, 33, 105, 0.2) 100%),
-    url("https://commons.wikimedia.org/wiki/Special:Redirect/file/Gopuram_of_the_Meenakshi_Temple_at_Madurai.jpg?width=1800") center / cover;
-}
+/* ==========================================================
+ * Hero Section Styles
+ * ----------------------------------------------------------
+ * MOVED to: components/Hero/Hero.module.scss
+ *
+ * The hero section is now a standalone component with
+ * scoped CSS Modules. See components/Hero/ for all
+ * hero-related styles, data, and markup.
+ * ========================================================== */
 
-.hero::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 16%;
-  background: linear-gradient(180deg, transparent, rgba(255, 252, 245, 0.96));
-  pointer-events: none;
-}
-
-.hero__inner {
-  position: relative;
-  z-index: 1;
-  width: min(1180px, calc(100% - 40px));
-  margin: 0 auto;
-  padding: 78px 0 120px;
-}
-
-.hero__content {
-  max-width: 780px;
-}
-
-.hero h1 {
-  margin: 0;
-  font-family: var(--font-display);
-  font-size: 4.25rem;
-  line-height: 1.02;
-  letter-spacing: 0;
-}
-
-.hero__lead {
-  max-width: 690px;
-  margin: 22px 0 0;
-  color: rgba(255, 255, 255, 0.9);
-  font-size: 1.18rem;
-}
-
-.hero__actions,
 .cta-row {
   display: flex;
   flex-wrap: wrap;
@@ -222,7 +186,8 @@ main {
   border-radius: 8px;
   font-weight: 900;
   text-decoration: none;
-  transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease, color 180ms ease;
+  transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease,
+    color 180ms ease;
 }
 
 .button:hover {
@@ -251,39 +216,6 @@ main {
   color: var(--color-primary);
   border-color: rgba(1, 33, 105, 0.18);
   background: rgba(1, 33, 105, 0.04);
-}
-
-.hero__stats {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1px;
-  max-width: 760px;
-  margin-top: 54px;
-  overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.13);
-  backdrop-filter: blur(12px);
-}
-
-.hero__stat {
-  padding: 20px;
-  background: rgba(1, 33, 105, 0.28);
-}
-
-.hero__stat strong {
-  display: block;
-  font-family: var(--font-display);
-  font-size: 2rem;
-  line-height: 1;
-}
-
-.hero__stat span {
-  display: block;
-  margin-top: 8px;
-  color: rgba(255, 255, 255, 0.82);
-  font-size: 0.9rem;
-  font-weight: 800;
 }
 
 .image-panel {
@@ -344,7 +276,8 @@ main {
   border: 1px solid var(--color-line);
   border-radius: var(--radius-card);
   box-shadow: 0 14px 34px rgba(24, 35, 63, 0.06);
-  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+  transition: transform 180ms ease, box-shadow 180ms ease,
+    border-color 180ms ease;
 }
 
 .card:hover {
@@ -413,9 +346,13 @@ main {
   align-items: center;
   padding: 34px;
   color: var(--color-ink-inverse);
-  background:
-    linear-gradient(135deg, rgba(1, 33, 105, 0.96), rgba(1, 22, 70, 0.9)),
-    url("https://commons.wikimedia.org/wiki/Special:Redirect/file/Gopuram_for_Kalabhaireshwar_temple_from_Hemakuta_hill_(01).jpg?width=1600") center / cover;
+  background: linear-gradient(
+      135deg,
+      rgba(1, 33, 105, 0.96),
+      rgba(1, 22, 70, 0.9)
+    ),
+    url("https://commons.wikimedia.org/wiki/Special:Redirect/file/Gopuram_for_Kalabhaireshwar_temple_from_Hemakuta_hill_(01).jpg?width=1600")
+      center / cover;
   border-radius: 8px;
   box-shadow: var(--shadow-soft);
 }
@@ -488,7 +425,11 @@ main {
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.04), rgba(1, 22, 70, 0.84));
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.04),
+    rgba(1, 22, 70, 0.84)
+  );
 }
 
 .project-card strong {
@@ -540,9 +481,16 @@ main {
 .page-hero {
   padding: 90px 0 80px;
   color: var(--color-ink-inverse);
-  background:
-    linear-gradient(90deg, rgba(1, 22, 70, 0.94), rgba(1, 33, 105, 0.72)),
-    var(--page-hero-image, url("https://commons.wikimedia.org/wiki/Special:Redirect/file/Gopuram_of_the_Meenakshi_Temple_at_Madurai.jpg?width=1800")) center / cover;
+  background: linear-gradient(
+      90deg,
+      rgba(1, 22, 70, 0.94),
+      rgba(1, 33, 105, 0.72)
+    ),
+    var(
+        --page-hero-image,
+        url("https://commons.wikimedia.org/wiki/Special:Redirect/file/Gopuram_of_the_Meenakshi_Temple_at_Madurai.jpg?width=1800")
+      )
+      center / cover;
 }
 
 .page-hero h1 {
@@ -771,25 +719,11 @@ main {
     grid-template-columns: 1fr;
   }
 
-  .hero {
-    min-height: auto;
-  }
-
-  .hero__inner {
-    padding: 72px 0 96px;
-  }
-
-  .hero h1 {
-    font-size: 3.05rem;
-  }
+  /* Hero responsive styles moved to Hero.module.scss */
 
   .section-title,
   .page-hero h1 {
     font-size: 2.35rem;
-  }
-
-  .hero__stats {
-    grid-template-columns: 1fr;
   }
 
   .process {
@@ -803,16 +737,12 @@ main {
 
 @media (max-width: 620px) {
   .container,
-  .hero__inner,
   .footer__inner {
     width: min(100% - 28px, 1180px);
   }
 
-  .hero h1 {
-    font-size: 2.45rem;
-  }
+  /* Hero responsive styles moved to Hero.module.scss */
 
-  .hero__lead,
   .page-hero p {
     font-size: 1rem;
   }
@@ -830,9 +760,35 @@ main {
     grid-template-columns: 1fr;
   }
 
-  .image-panel,
+  .image-panel {
+    min-height: 320px;
+    max-height: 420px;
+  }
+
   .image-panel img {
-    min-height: 380px;
+    width: 100%;
+    height: 100%;
+    min-height: 320px;
+    object-fit: cover;
+    object-position: center top;
+  }
+
+  .image-panel__caption {
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+    padding: 14px;
+  }
+
+  .image-panel__caption strong {
+    font-size: 1.1rem;
+    line-height: 1.3;
+  }
+
+  .image-panel__caption span {
+    margin-top: 6px;
+    font-size: 0.9rem;
+    line-height: 1.55;
   }
 
   .feature-band {
@@ -849,5 +805,30 @@ main {
 
   .timeline__item {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 420px) {
+  .image-panel {
+    min-height: 300px;
+  }
+
+  .image-panel img {
+    min-height: 300px;
+  }
+
+  .image-panel__caption {
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    padding: 12px;
+  }
+
+  .image-panel__caption strong {
+    font-size: 1rem;
+  }
+
+  .image-panel__caption span {
+    font-size: 0.85rem;
   }
 }

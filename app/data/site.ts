@@ -1,8 +1,6 @@
 export const imageSources = {
-  hero:
-    "https://commons.wikimedia.org/wiki/Special:Redirect/file/Gopuram_of_the_Meenakshi_Temple_at_Madurai.jpg?width=1800",
-  sculpture:
-    "https://commons.wikimedia.org/wiki/Special:Redirect/file/Stone_sculpture,_Thousand-Pillared_Hall,_Meenakshi_Temple,_Madurai.jpg?width=1100",
+  hero: "https://commons.wikimedia.org/wiki/Special:Redirect/file/Gopuram_of_the_Meenakshi_Temple_at_Madurai.jpg?width=1800",
+  sculpture: "/assets/images/subStatue.webp",
   gopuram:
     "https://commons.wikimedia.org/wiki/Special:Redirect/file/ParthasarathyTempleGopuram.JPG?width=1400",
   process:

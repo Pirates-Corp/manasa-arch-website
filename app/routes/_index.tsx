@@ -12,25 +12,33 @@ import {
   Hammer,
   Landmark,
   Layers,
-  MapPinned,
   ScrollText,
   ShieldCheck,
   Star,
 } from "lucide-react";
 import Footer from "../components/Footer/Footer";
+import GlobalPresence from "../components/GlobalPresence/GlobalPresence";
+import Hero from "../components/Hero/Hero";
 import Navbar from "../components/Navbar/Navbar";
-import { countries, imageSources, processSteps, serviceSummaries } from "../data/site";
+import { imageSources, processSteps, serviceSummaries } from "../data/site";
 import { organizationJsonLd, seoKeywords } from "../utils/seo";
 
 export const meta: MetaFunction = () => [
-  { title: "Maanasa Temple Arch | Temple Construction Company & Hindu Temple Architects" },
+  {
+    title:
+      "Maanasa Temple Arch | Temple Construction Company & Hindu Temple Architects",
+  },
   {
     name: "description",
     content:
       "Maanasa Temple Arch provides Agama Shastra temple construction, Hindu temple architecture, Vastu temple design, sculpture, renovation, and global temple services led by a 5-generation Sthapathi lineage from Tamil Nadu.",
   },
   { name: "keywords", content: seoKeywords },
-  { property: "og:title", content: "Maanasa Temple Arch - Agama-Compliant Temple Construction Services" },
+  {
+    property: "og:title",
+    content:
+      "Maanasa Temple Arch - Agama-Compliant Temple Construction Services",
+  },
   {
     property: "og:description",
     content:
@@ -45,60 +53,26 @@ export default function Index() {
     <div className="page">
       <Navbar />
       <main>
-        <section className="hero">
-          <div className="hero__inner">
-            <div className="hero__content">
-              <p className="eyebrow">5-generation Sthapathi lineage</p>
-              <h1>Best Temple Construction Services by Expert Temple Architects</h1>
-              <p className="hero__lead">
-                Build a temple that stands for centuries, structurally and spiritually.
-                Maanasa Temple Arch delivers temple construction services and Hindu
-                temple architecture rooted in Agama Shastra, Vastu Shastra, and Silpa
-                Shastra for projects across India and worldwide.
-              </p>
-              <div className="hero__actions">
-                <Link className="button button--primary" to="/contact">
-                  Book a Free Sthapathi Consultation
-                  <ArrowUpRight size={17} />
-                </Link>
-                <Link className="button button--outline" to="/service">
-                  Explore Temple Services
-                </Link>
-              </div>
-              <div className="hero__stats" aria-label="Company experience highlights">
-                <div className="hero__stat">
-                  <strong>100+</strong>
-                  <span>Temples Delivered</span>
-                </div>
-                <div className="hero__stat">
-                  <strong>25+</strong>
-                  <span>Years Experience</span>
-                </div>
-                <div className="hero__stat">
-                  <strong>7+</strong>
-                  <span>Countries Supported</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+        <Hero />
 
         <section className="section" id="about">
           <div className="container split">
             <div>
               <p className="eyebrow">Trust and authority</p>
-              <h2 className="section-title">A lineage-driven temple construction company you can trust</h2>
+              <h2 className="section-title">
+                A lineage-driven temple construction company you can trust
+              </h2>
               <p className="section-copy">
-                Temple construction is not a general contracting service. It is a sacred
-                discipline that demands scriptural precision, generational knowledge,
-                and execution expertise.
+                Temple construction is not a general contracting service. It is
+                a sacred discipline that demands scriptural precision,
+                generational knowledge, and execution expertise.
               </p>
               <p className="section-copy">
-                Led by Kannan Sthapathi, a Government-approved Hindu temple architect,
-                Maanasa Temple Arch carries a 5-generation Vishvakarma Sthapathi
-                lineage from Tamil Nadu. This heritage includes contribution by
-                Shanmuga Vishvakarma Sthapathi to the Madurai Meenakshi Amman Temple
-                in 1963.
+                Led by Kannan Sthapathi, a Government-approved Hindu temple
+                architect, Maanasa Temple Arch carries a 5-generation
+                Vishvakarma Sthapathi lineage from Tamil Nadu. This heritage
+                includes contribution by Shanmuga Vishvakarma Sthapathi to the
+                Madurai Meenakshi Amman Temple in 1963.
               </p>
               <div className="cta-row">
                 <Link className="button button--primary-dark" to="/about">
@@ -110,12 +84,15 @@ export default function Index() {
             <figure className="image-panel">
               <img
                 src={imageSources.sculpture}
-                alt="Traditional stone sculpture work inside a South Indian Hindu temple"
+                alt="Sacred stone deity sculpture crafted using traditional Agama principles"
                 loading="lazy"
               />
               <figcaption className="image-panel__caption">
                 <strong>Scriptural precision, artisan execution</strong>
-                <span>Agama, Vastu, Silpa, sculpture, and structural accountability under one system.</span>
+                <span>
+                  Agama, Vastu, Silpa, sculpture, and structural accountability
+                  under one system.
+                </span>
               </figcaption>
             </figure>
           </div>
@@ -124,11 +101,14 @@ export default function Index() {
         <section className="section section--stone" id="services">
           <div className="container">
             <p className="eyebrow">Complete temple services</p>
-            <h2 className="section-title">Comprehensive temple construction services and architecture solutions</h2>
+            <h2 className="section-title">
+              Comprehensive temple construction services and architecture
+              solutions
+            </h2>
             <p className="section-copy">
-              We provide integrated temple construction and temple architecture services,
-              reducing the risks of fragmented execution between design, sculpture,
-              materials, and site delivery.
+              We provide integrated temple construction and temple architecture
+              services, reducing the risks of fragmented execution between
+              design, sculpture, materials, and site delivery.
             </p>
             <div className="cards-grid">
               {serviceSummaries.map((service, index) => {
@@ -152,27 +132,48 @@ export default function Index() {
             <div className="feature-band">
               <div>
                 <p className="eyebrow">Agama compliant architecture</p>
-                <h2>Every measurement, orientation, and deity placement follows sacred guidelines.</h2>
+                <h2>
+                  Every measurement, orientation, and deity placement follows
+                  sacred guidelines.
+                </h2>
               </div>
               <div>
                 <p>
-                  Our work is anchored in Agama Shastra, Vastu Shastra, and Silpa
-                  Shastra. From Garbhagriha planning to Vimana, Gopuram, Mandapam,
-                  idol proportions, and final consecration readiness, each decision is
-                  validated through a Sthapathi-led process.
+                  Our work is anchored in Agama Shastra, Vastu Shastra, and
+                  Silpa Shastra. From Garbhagriha planning to Vimana, Gopuram,
+                  Mandapam, idol proportions, and final consecration readiness,
+                  each decision is validated through a Sthapathi-led process.
                 </p>
               </div>
             </div>
             <div className="cards-grid cards-grid--four">
               {[
-                ["Scriptural Accuracy", "Every measurement, orientation, and deity placement is aligned with Agama principles.", ScrollText],
-                ["Structural Integrity", "Engineering-backed construction supports durability without compromising sacred proportions.", ShieldCheck],
-                ["Authentic Craftsmanship", "Lineage-trained artisans execute sculpture, stonework, and traditional details.", Hammer],
-                ["Global Compliance", "Temple designs can adapt to USA, UK, Canada, Europe, and other local requirements.", Globe2],
+                [
+                  "Scriptural Accuracy",
+                  "Every measurement, orientation, and deity placement is aligned with Agama principles.",
+                  ScrollText,
+                ],
+                [
+                  "Structural Integrity",
+                  "Engineering-backed construction supports durability without compromising sacred proportions.",
+                  ShieldCheck,
+                ],
+                [
+                  "Authentic Craftsmanship",
+                  "Lineage-trained artisans execute sculpture, stonework, and traditional details.",
+                  Hammer,
+                ],
+                [
+                  "Global Compliance",
+                  "Temple designs can adapt to USA, UK, Canada, Europe, and other local requirements.",
+                  Globe2,
+                ],
               ].map(([title, text, Icon]) => (
                 <article className="card" key={String(title)}>
                   <div className="card__icon" aria-hidden="true">
-                    {React.createElement(Icon as typeof ScrollText, { size: 24 })}
+                    {React.createElement(Icon as typeof ScrollText, {
+                      size: 24,
+                    })}
                   </div>
                   <h3>{title}</h3>
                   <p>{text}</p>
@@ -182,48 +183,46 @@ export default function Index() {
           </div>
         </section>
 
-        <section className="section section--blue">
-          <div className="container split">
-            <div>
-              <p className="eyebrow">Global temple construction</p>
-              <h2 className="section-title">From Tamil Nadu to the world</h2>
-              <p className="section-copy">
-                We support NRI communities, temple trusts, private clients, and global
-                spiritual organizations with remote planning, idol export logistics,
-                compliance adaptation, and on-site supervision when required.
-              </p>
-            </div>
-            <div className="cards-grid">
-              {countries.map((country) => (
-                <article className="card" key={country}>
-                  <div className="card__icon" aria-hidden="true">
-                    <MapPinned size={22} />
-                  </div>
-                  <h3>{country}</h3>
-                  <p>Temple planning, design coordination, logistics, and execution support.</p>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
+        <GlobalPresence />
 
         <section className="section section--stone" id="projects">
           <div className="container">
             <p className="eyebrow">Project showcase</p>
-            <h2 className="section-title">Temple projects across India and international communities</h2>
+            <h2 className="section-title">
+              Temple projects across India and international communities
+            </h2>
             <p className="section-copy">
-              Our portfolio spans new temple construction, renovation, sculptural work,
-              granite craftsmanship, and international consultation. Each project is
-              approached as a long-term cultural and spiritual structure.
+              Our portfolio spans new temple construction, renovation,
+              sculptural work, granite craftsmanship, and international
+              consultation. Each project is approached as a long-term cultural
+              and spiritual structure.
             </p>
             <div className="project-grid">
               {[
-                ["Tamil Nadu Temples", "Dravidian architecture", imageSources.hero],
-                ["International Projects", "Compliance adaptation", imageSources.process],
-                ["Sculpture Works", "Stone and Panchaloha", imageSources.sculpture],
+                [
+                  "Tamil Nadu Temples",
+                  "Dravidian architecture",
+                  imageSources.hero,
+                ],
+                [
+                  "International Projects",
+                  "Compliance adaptation",
+                  imageSources.process,
+                ],
+                [
+                  "Sculpture Works",
+                  "Stone and Panchaloha",
+                  imageSources.sculpture,
+                ],
                 ["Renovation", "Heritage alignment", imageSources.gopuram],
               ].map(([title, label, image]) => (
-                <article className="project-card" key={title} style={{ "--image": `url("${image}")` } as React.CSSProperties}>
+                <article
+                  className="project-card"
+                  key={title}
+                  style={
+                    { "--image": `url("${image}")` } as React.CSSProperties
+                  }
+                >
                   <div>
                     <span>{label}</span>
                     <strong>{title}</strong>
@@ -237,11 +236,14 @@ export default function Index() {
         <section className="section">
           <div className="container">
             <p className="eyebrow">Structured delivery</p>
-            <h2 className="section-title">A clear temple construction process from consultation to Kumbabishekam support</h2>
+            <h2 className="section-title">
+              A clear temple construction process from consultation to
+              Kumbabishekam support
+            </h2>
             <p className="section-copy">
-              Each stage is aligned with Agama compliance and structural engineering
-              standards, creating clarity for clients before design, materials, and
-              execution begin.
+              Each stage is aligned with Agama compliance and structural
+              engineering standards, creating clarity for clients before design,
+              materials, and execution begin.
             </p>
             <div className="process">
               {processSteps.map((step, index) => (
@@ -257,17 +259,37 @@ export default function Index() {
         <section className="section section--blue">
           <div className="container">
             <p className="eyebrow">Why choose us</p>
-            <h2 className="section-title">Traditional Sthapathi architects with end-to-end ownership</h2>
+            <h2 className="section-title">
+              Traditional Sthapathi architects with end-to-end ownership
+            </h2>
             <div className="cards-grid cards-grid--four">
               {[
-                ["Hereditary knowledge", "5 generations of temple architecture expertise from Tamil Nadu.", BadgeCheck],
-                ["Agama first", "No design decision is made without scriptural validation.", Compass],
-                ["Integrated execution", "Design, sculpture, and construction remain under one system.", Building2],
-                ["Selective intake", "Focused attention for projects that require spiritual and architectural precision.", Star],
+                [
+                  "Hereditary knowledge",
+                  "5 generations of temple architecture expertise from Tamil Nadu.",
+                  BadgeCheck,
+                ],
+                [
+                  "Agama first",
+                  "No design decision is made without scriptural validation.",
+                  Compass,
+                ],
+                [
+                  "Integrated execution",
+                  "Design, sculpture, and construction remain under one system.",
+                  Building2,
+                ],
+                [
+                  "Selective intake",
+                  "Focused attention for projects that require spiritual and architectural precision.",
+                  Star,
+                ],
               ].map(([title, text, Icon]) => (
                 <article className="card" key={String(title)}>
                   <div className="card__icon" aria-hidden="true">
-                    {React.createElement(Icon as typeof BadgeCheck, { size: 24 })}
+                    {React.createElement(Icon as typeof BadgeCheck, {
+                      size: 24,
+                    })}
                   </div>
                   <h3>{title}</h3>
                   <p>{text}</p>
@@ -281,25 +303,40 @@ export default function Index() {
           <div className="container split">
             <div>
               <p className="eyebrow">Client confidence</p>
-              <h2 className="section-title">Built for trusts, NRIs, spiritual organizations, and private temple patrons</h2>
+              <h2 className="section-title">
+                Built for trusts, NRIs, spiritual organizations, and private
+                temple patrons
+              </h2>
               <p className="section-copy">
                 The right Sthapathi helps protect spiritual integrity, long-term
-                durability, cultural authenticity, and clarity through each stage of the
-                temple development lifecycle.
+                durability, cultural authenticity, and clarity through each
+                stage of the temple development lifecycle.
               </p>
               <ul className="detail-list">
-                <li>Authentic temple architecture with Agama and Vastu alignment.</li>
-                <li>Durable structures supported by modern engineering standards.</li>
-                <li>Traditional craftsmanship from sculpture to final detailing.</li>
+                <li>
+                  Authentic temple architecture with Agama and Vastu alignment.
+                </li>
+                <li>
+                  Durable structures supported by modern engineering standards.
+                </li>
+                <li>
+                  Traditional craftsmanship from sculpture to final detailing.
+                </li>
               </ul>
             </div>
             <div className="testimonial-row">
               <blockquote className="quote">
-                <p>Every temple is treated as a sacred system, not a short-term build.</p>
+                <p>
+                  Every temple is treated as a sacred system, not a short-term
+                  build.
+                </p>
                 <cite>Maanasa Temple Arch Approach</cite>
               </blockquote>
               <blockquote className="quote">
-                <p>Lineage, knowledge, and precision guide the project from concept to consecration readiness.</p>
+                <p>
+                  Lineage, knowledge, and precision guide the project from
+                  concept to consecration readiness.
+                </p>
                 <cite>Sthapathi-Led Execution</cite>
               </blockquote>
             </div>
@@ -310,10 +347,14 @@ export default function Index() {
           <div className="container split">
             <div>
               <p className="eyebrow">Start your temple project</p>
-              <h2 className="section-title">Build a temple with precision, durability, and spiritual alignment.</h2>
+              <h2 className="section-title">
+                Build a temple with precision, durability, and spiritual
+                alignment.
+              </h2>
               <p className="section-copy">
-                A well-planned start helps align your vision with Agama principles,
-                architecture, sculpture, budget, location, and execution feasibility.
+                A well-planned start helps align your vision with Agama
+                principles, architecture, sculpture, budget, location, and
+                execution feasibility.
               </p>
             </div>
             <div className="cta-row">
@@ -329,7 +370,9 @@ export default function Index() {
         </section>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(organizationJsonLd),
+          }}
         />
       </main>
       <Footer />
