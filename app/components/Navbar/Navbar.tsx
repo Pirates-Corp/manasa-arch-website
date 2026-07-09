@@ -13,10 +13,10 @@ export default function Navbar() {
         <Link className={style.brand} to="/" onClick={closeMenu}>
           <img
             className={style.brandLogo}
-            src="/assets/logo/temple-logo.webp"
+            src="/assets/logo/maanasa-logo.svg"
             alt="Maanasa Temple Arch"
-            width={55}
-            height={78}
+            width={60}
+            height={80}
             loading="eager"
             decoding="async"
           />
