@@ -1,49 +1,52 @@
 import React from "react";
 import { Link } from "@remix-run/react";
 import { ArrowUpRight } from "lucide-react";
+import {
+  FOOTER_BRAND,
+  FOOTER_NAVIGATION,
+  FOOTER_EXPERTISE,
+  FOOTER_BOTTOM,
+} from "./footer.data";
+import styles from "./Footer.module.scss";
 
 export default function Footer() {
   return (
-    <footer className="footer">
-      <div className="footer__inner">
-        <div className="footer__grid">
+    <footer className={styles.footer}>
+      <div className={styles.inner}>
+        <div className={styles.grid}>
           <div>
-            <h2>Maanasa Temple Arch</h2>
-            <p>
-              Sthapathi-led Hindu temple construction, temple architecture design,
-              sculpture, renovation, and global project support rooted in Agama
-              Shastra, Vastu Shastra, and Silpa Shastra.
-            </p>
-            <Link className="button button--primary" to="/contact">
-              Get Free Consultation
+            <h2>{FOOTER_BRAND.title}</h2>
+            <p>{FOOTER_BRAND.description}</p>
+            <Link className="button button--primary" to={FOOTER_BRAND.cta.href}>
+              {FOOTER_BRAND.cta.label}
               <ArrowUpRight size={17} />
             </Link>
           </div>
           <div>
-            <h3>Navigation</h3>
+            <h3>{FOOTER_NAVIGATION.title}</h3>
             <ul>
-              <li><Link to="/">Home</Link></li>
-              <li><Link to="/about">About Us</Link></li>
-              <li><Link to="/service">Services</Link></li>
-              <li><Link to="/#projects">Projects</Link></li>
-              <li><Link to="/contact">Contact</Link></li>
+              {FOOTER_NAVIGATION.links.map((link) => (
+                <li key={link.href}>
+                  <Link to={link.href}>{link.label}</Link>
+                </li>
+              ))}
             </ul>
           </div>
           <div>
-            <h3>Core Expertise</h3>
+            <h3>{FOOTER_EXPERTISE.title}</h3>
             <ul>
-              <li>Agama Shastra Temple Construction</li>
-              <li>Hindu Temple Architecture</li>
-              <li>Temple Renovation Services</li>
-              <li>Temple Architects Worldwide</li>
+              {FOOTER_EXPERTISE.items.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
             </ul>
           </div>
         </div>
-        <div className="footer__bottom">
-          <span>Copyright 2026 Maanasa Temple Arch. All rights reserved.</span>
-          <span>Tamil Nadu, India. Projects across India and internationally.</span>
+        <div className={styles.bottom}>
+          <span>{FOOTER_BOTTOM.copyright}</span>
+          <span>{FOOTER_BOTTOM.info}</span>
         </div>
       </div>
     </footer>
   );
 }
+
