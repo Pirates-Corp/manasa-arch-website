@@ -5,6 +5,10 @@ export interface FooterLink {
 
 export interface FooterBrand {
   title: string;
+  logoSrc: string;
+  owner: string;
+  qualifications: string[];
+  regNo: string;
   description: string;
   cta: {
     label: string;
@@ -22,6 +26,13 @@ export interface FooterExpertise {
   items: string[];
 }
 
+export interface FooterContact {
+  title: string;
+  phones: string[];
+  email: string;
+  addressLines: string[];
+}
+
 export interface FooterBottom {
   copyright: string;
   info: string;
@@ -29,6 +40,13 @@ export interface FooterBottom {
 
 export const FOOTER_BRAND: FooterBrand = {
   title: "Maanasa Temple Arch",
+  logoSrc: "/assets/logo/maanasa-logo.svg",
+  owner: "M. Kannan Sthapathi",
+  qualifications: [
+    "Government Approved Sthapathi",
+    "B.Tech Temple Architecture",
+  ],
+  regNo: "3975/1998-2Y2 Dt.01.2009",
   description:
     "Sthapathi-led Hindu temple construction, temple architecture design, sculpture, renovation, and global project support rooted in Agama Shastra, Vastu Shastra, and Silpa Shastra.",
   cta: {
@@ -51,14 +69,31 @@ export const FOOTER_NAVIGATION: FooterNavigation = {
 export const FOOTER_EXPERTISE: FooterExpertise = {
   title: "Core Expertise",
   items: [
-    "Agama Shastra Temple Construction",
-    "Hindu Temple Architecture",
-    "Temple Renovation Services",
-    "Temple Architects Worldwide",
+    "Temple Construction",
+    "Temple Architecture",
+    "Temple Renovation",
+    "Stone Sculpture",
+    "Vastu Planning",
+    "Global Temple Projects",
+  ],
+};
+
+export const FOOTER_CONTACT: FooterContact = {
+  title: "Contact Information",
+  phones: ["+91 80155 39719", "+91 94447 02660"],
+  email: "kannaatishd@gmail.com",
+  addressLines: [
+    "No.299,",
+    "Vasanthapuram Extension,",
+    "Vadakadambadi,",
+    "Mamallapuram,",
+    "Kancheepuram District,",
+    "Tamil Nadu,",
+    "India",
   ],
 };
 
 export const FOOTER_BOTTOM: FooterBottom = {
-  copyright: "Copyright 2026 Maanasa Temple Arch. All rights reserved.",
-  info: "Tamil Nadu, India. Projects across India and internationally.",
+  copyright: "© Copyright 2026 Maanasa Temple Arch. All Rights Reserved.",
+  info: "Traditional Hindu Temple Architects & Sthapathi Builders.",
 };
