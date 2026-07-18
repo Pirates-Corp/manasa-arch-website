@@ -53,3 +53,38 @@ export const processSteps = [
   "Finalization",
   "Kumbabishekam",
 ];
+
+export const leadershipAttributes = [
+  "Tamil Nadu Government-approved Sthapathi",
+  "Regional Sthapathi approved by Government - Tiruvannamalai Region",
+  "Project Advisor at TVS Group",
+  "Consultant for temple architecture, sculpture, Vastu alignment, and sacred planning",
+];
+
+export const lineageTimeline = [
+  { generation: "5th", name: "Kannan Muthalugu Vishvakarma Sthapathi", note: "Founder and current generation." },
+  { generation: "4th", name: "Muthalugu Vishvakarma Sthapathi", note: "Father and lineage carrier." },
+  { generation: "3rd", name: "Shanmuga Vishvakarma Sthapathi", note: "Contributed to the Madurai Meenakshi Amman Temple in 1963." },
+  { generation: "2nd", name: "Ponniya Vishvakarma Sthapathi", note: "Great grandfather and sacred craft practitioner." },
+  { generation: "1st", name: "Muthalugu Vishvakarma Sthapathi", note: "Earlier generation of hereditary temple architecture knowledge." },
+];
+
+export const methodologies = [
+  {
+    title: "Spiritual correctness",
+    text: "Design choices are validated through Agama principles.",
+  },
+  {
+    title: "Structural durability",
+    text: "Modern engineering supports traditional temple form.",
+  },
+  {
+    title: "Cultural authenticity",
+    text: "Craftsmanship remains rooted in Tamil Nadu temple traditions.",
+  },
+  {
+    title: "Global adaptability",
+    text: "Projects can adapt to international building and logistics requirements.",
+  },
+];
+

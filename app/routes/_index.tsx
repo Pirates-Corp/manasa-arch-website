@@ -1,7 +1,7 @@
 import React from "react";
 import type { MetaFunction } from "@remix-run/node";
 import Footer from "../components/Footer/Footer";
-import GlobalPresence from "../components/GlobalPresence/GlobalPresence";
+import GlobalPresence from "../components/HomePage/GlobalPresence/GlobalPresence";
 import Hero from "../components/Hero/Hero";
 import Navbar from "../components/Navbar/Navbar";
 import AboutSection from "../components/HomePage/AboutSection/AboutSection";
