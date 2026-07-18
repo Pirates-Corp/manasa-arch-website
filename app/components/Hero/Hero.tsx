@@ -27,50 +27,16 @@ export default function Hero() {
     >
       <div className={styles.inner}>
         <div className={styles.content}>
-          {/* ------------------------------------------------
-           * Eyebrow Badge
-           * ------------------------------------------------
-           * Small trust indicator above the headline.
-           * Establishes credibility (5th generation lineage)
-           * before the user reads the main heading.
-           * ------------------------------------------------ */}
           <p className={styles.eyebrow}>{HERO_EYEBROW}</p>
 
-          {/* ------------------------------------------------
-           * Main Headline (H1)
-           * ------------------------------------------------
-           * Two-line visual hierarchy:
-           * Line 1: Sets context with lighter weight
-           * Line 2: Carries primary keyword with gradient
-           *
-           * SEO: Single H1 per page, contains target keywords.
-           * The <span> for line2 is styled as a block-level
-           * accent without breaking semantic heading structure.
-           * ------------------------------------------------ */}
           <h1 className={styles.heading}>
             {HERO_HEADLINE.line1}
             <span className={styles.headingAccent}>{HERO_HEADLINE.line2}</span>
           </h1>
 
-          {/* ------------------------------------------------
-           * Lead Paragraph
-           * ------------------------------------------------
-           * Supporting copy that expands on the headline.
-           * Kept concise for above-the-fold readability.
-           * Max-width controlled in SCSS for line length.
-           * ------------------------------------------------ */}
           <p className={styles.lead}>{HERO_DESCRIPTION}</p>
 
-          {/* ------------------------------------------------
-           * Call-to-Action Buttons
-           * ------------------------------------------------
-           * Primary: High-conversion consultation booking
-           * Secondary: Lower-friction service exploration
-           *
-           * Both use Remix's <Link> for client-side navigation.
-           * ArrowUpRight icon on primary signals "action" and
-           * adds visual momentum to the CTA.
-           * ------------------------------------------------ */}
+         
           <div className={styles.actions}>
             <Link
               className={styles.ctaPrimary}
@@ -85,17 +51,6 @@ export default function Hero() {
             </Link>
           </div>
 
-          {/* ------------------------------------------------
-           * Trust Metrics Bar
-           * ------------------------------------------------
-           * Glassmorphism card showing key statistics.
-           * Builds immediate social proof and credibility.
-           *
-           * Uses aria-label on the container so screen readers
-           * announce the purpose of this data group.
-           * Each stat uses <strong> for the value (semantic
-           * importance) and <span> for the label.
-           * ------------------------------------------------ */}
           <div
             className={styles.stats}
             role="group"

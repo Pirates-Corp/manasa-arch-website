@@ -16,8 +16,8 @@ export const HERO_LOGO = {
 export const HERO_EYEBROW = "5th Generation Sthapathi Lineage";
 
 export const HERO_HEADLINE = {
-  line1: "Expert Temple Architects",
-  line2: "Rooted in Agama Shastra",
+  line1: "Best Temple Construction Services by ",
+  line2: "Expert Temple Architects ",
 } as const;
 
 export const HERO_DESCRIPTION =
