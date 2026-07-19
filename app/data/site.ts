@@ -14,7 +14,7 @@ export const serviceSummaries = [
   },
   {
     title: "Temple Architecture Design",
-    text: "Gopuram, Rajagopuram, Mandapam, Vimana, and Vastu-aligned temple layouts shaped by traditional proportions.",
+    text: "Gopuram, Rajagopuram, Mandapam, Vimanam, and Vastu-aligned temple layouts shaped by traditional proportions.",
   },
   {
     title: "Idol & Sculpture Works",
