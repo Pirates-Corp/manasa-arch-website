@@ -11,11 +11,15 @@ export default function Navbar() {
     <header className={style.header}>
       <nav className={style.navbar} aria-label="Primary navigation">
         <Link className={style.brand} to="/" onClick={closeMenu}>
-          <span className={style.brandMark} aria-hidden="true">M</span>
-          <span>
-            <strong>Maanasa Temple Arch</strong>
-            <small>Agama Temple Architecture</small>
-          </span>
+          <img
+            className={style.brandLogo}
+            src="/assets/logo/maanasa-logo.svg"
+            alt="Maanasa Temple Arch"
+            width={60}
+            height={80}
+            loading="eager"
+            decoding="async"
+          />
         </Link>
 
         <button
@@ -28,7 +32,9 @@ export default function Navbar() {
           {isOpen ? <X size={22} /> : <Menu size={22} />}
         </button>
 
-        <div className={`${style.navPanel} ${isOpen ? style.navPanelOpen : ""}`}>
+        <div
+          className={`${style.navPanel} ${isOpen ? style.navPanelOpen : ""}`}
+        >
           <ul className={style.navLinks}>
             <li>
               <NavLink to="/" onClick={closeMenu}>
