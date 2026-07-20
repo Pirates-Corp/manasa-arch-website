@@ -91,10 +91,12 @@ export default function Leadership() {
 
             <div className={styles.profileHeader}>
               <span className={styles.legacyBadge}>5th Generation Legacy</span>
+
+              {/* Reserved for future profile status indicator
               <div className={styles.activeSeal}>
                 <span className={styles.pulseDot}></span>
                 <span className={styles.activeText}>Active Registration</span>
-              </div>
+              </div> */}
             </div>
 
             <div className={styles.profileBody}>
@@ -113,7 +115,7 @@ export default function Leadership() {
                 <span className={styles.signatureLabel}>
                   Signature Authority
                 </span>
-                <span className={styles.signatureText}>K. Sthapathi</span>
+                <span className={styles.signatureText}>Kannan Sthapathi</span>
               </div>
               <div className={styles.lineageBadgeMini}>Est. Tamil Nadu</div>
             </div>
@@ -142,6 +144,22 @@ export default function Leadership() {
                 every project—whether in stone, metal, or wood—fully adheres to
                 the ancient Agama Shastra principles while employing modern
                 engineering durability.
+              </p>
+
+              <p className={styles.sectionCopy}>
+                Kannan Sthapathi was a proud student trained for over 10 years
+                under the legendary Padma Shri awardee{" "}
+                <a
+                  href="https://en.wikipedia.org/wiki/Muthiah_Sthapati"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.link}
+                >
+                  Muthiah Sthapati
+                </a>
+                , refining his architectural and sculptural expertise directly
+                under his guidance and carrying forward one of India's most
+                respected Sthapathi traditions.
               </p>
 
               <div className={styles.heritageCallout}>

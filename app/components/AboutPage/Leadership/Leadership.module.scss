@@ -89,6 +89,19 @@
   gap: 8px;
 }
 
+/*
+------------------------------------------------------------
+Reserved for Future Profile Status Indicator
+
+Example:
+● Active Registration
+
+Reusable status badge with animated pulse.
+Currently disabled because it is not relevant for the
+current Leadership profile card.
+
+------------------------------------------------------------
+
 .pulseDot {
   width: 8px;
   height: 8px;
@@ -112,6 +125,8 @@
   font-weight: 700;
   letter-spacing: 0.02em;
 }
+
+*/
 
 .profileBody {
   position: relative;
@@ -243,6 +258,37 @@
   strong {
     color: var(--color-primary);
     font-weight: 700;
+  }
+}
+
+.link {
+  color: var(--color-gold);
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-color: var(--color-gold);
+  text-underline-offset: 3px;
+  text-decoration-thickness: 2px;
+  cursor: pointer;
+  transition: color 0.25s ease, text-decoration-color 0.25s ease;
+
+  &:hover {
+    color: var(--color-primary-dark);
+    text-decoration-color: var(--color-primary-dark);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-gold);
+    outline-offset: 3px;
+    border-radius: 3px;
+  }
+
+  &:visited {
+    color: var(--color-gold);
+
+    &:hover {
+      color: var(--color-primary-dark);
+      text-decoration-color: var(--color-primary-dark);
+    }
   }
 }
 
@@ -467,6 +513,17 @@
 }
 
 /* Animations */
+/*
+------------------------------------------------------------
+Reserved Animation
+
+Used by:
+Active Registration Status Indicator
+
+Currently disabled.
+
+------------------------------------------------------------
+
 @keyframes pulse {
   0% {
     transform: scale(1);
@@ -481,6 +538,8 @@
     opacity: 0;
   }
 }
+
+*/
 
 /* Breakpoints & Responsiveness */
 @media (max-width: 1100px) {
