@@ -17,7 +17,7 @@ export default function AgamaSection() {
           <div>
             <p>
               Our work is anchored in Agama Shastra, Vastu Shastra, and
-              Silpa Shastra. From Garbhagriha planning to Vimana, Gopuram,
+              Silpa Shastra. From Garbhagriha planning to Vimanam, Gopuram,
               Mandapam, idol proportions, and final consecration readiness,
               each decision is validated through a Sthapathi-led process.
             </p>
