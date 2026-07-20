@@ -14,7 +14,7 @@ export default function CompanyStory() {
           <p className={styles.sectionCopy}>
             We specialize in temple construction services, Hindu temple architecture,
             Agama-compliant temple design, sacred sculpture, and traditional temple
-            renovation. From Garbhagriha planning to Vimana, Gopuram, Rajagopuram,
+            renovation. From Garbhagriha planning to Vimanam, Gopuram, Rajagopuram,
             Mandapam, and deity sculpture, every aspect is guided by authentic
             temple architecture principles followed for generations.
           </p>
