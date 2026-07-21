@@ -84,11 +84,11 @@ export const FOOTER_CONTACT: FooterContact = {
   email: "kannaatishd@gmail.com",
   addressLines: [
     "No.299,",
-    "Vasanthapuram Extension,",
+    "Vasanthapuri Extension,",
     "Vadakadambadi,",
     "Mamallapuram,",
     "Kancheepuram District,",
-    "Tamil Nadu,",
+    "Tamil Nadu - 603104,",
     "India",
   ],
 };
