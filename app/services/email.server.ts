@@ -2,14 +2,15 @@
  * Email Service — Server-Only 
  *
  * Handles all email dispatch for the Maanasa Temple Architecture project.
- * Uses Nodemailer with SMTP transport and environment-based credentials.
+ * Uses Nodemailer with SMTP transport.
+ * SMTP configuration is intentionally hardcoded for this project.
 
  * The .server.ts suffix guarantees Nodemailer and SMTP credentials
  * are never exposed to the client bundle.
  */
 
 import nodemailer from "nodemailer";
-import { getSmtpConfig } from "../utils/env.server";
+// import { getSmtpConfig } from "../utils/env.server";
 import type { ConsultationSubmission } from "../types/form";
 
 /**
@@ -153,27 +154,28 @@ function buildConsultationEmailText(
  *
  * Returns { ok: true } on success or { ok: false, error: string } on failure.
  */
+
 export async function sendConsultationEmail(
   submission: ConsultationSubmission,
 ): Promise<{ ok: true; error?: never } | { ok: false; error: string }> {
   try {
-    const smtp = getSmtpConfig();
+    // const smtp = getSmtpConfig();
 
     const transporter = nodemailer.createTransport({
-      host: smtp.host,
-      port: smtp.port,
-      secure: smtp.secure,
+      host: "smtp.roundlogics.com",
+      port: 587,
+      secure: false,
       auth: {
-        user: smtp.user,
-        pass: smtp.pass,
+        user: "sivaprakash.m@compassclock.in",
+        pass: "4hYeUrprG39lyfW",
       },
       requireTLS: true,
       connectionTimeout: 8000,
     });
 
     await transporter.sendMail({
-      from: smtp.from,
-      to: smtp.to,
+      from: "sivaprakash.m@compassclock.in",
+      to: "hr@piratescorp.com",
       replyTo: submission.email,
       subject: `[New Consultation Request] ${submission.service} — ${submission.name} (${submission.location})`,
       text: buildConsultationEmailText(submission),
@@ -183,8 +185,13 @@ export async function sendConsultationEmail(
     return { ok: true };
   } catch (error) {
     console.error("Email dispatch failed:", error);
+
     const message =
       error instanceof Error ? error.message : "Unknown email error";
-    return { ok: false, error: message };
+
+    return {
+      ok: false,
+      error: message,
+    };
   }
 }
