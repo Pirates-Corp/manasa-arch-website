@@ -10,16 +10,16 @@ export default function AgamaSection() {
           <div>
             <p className={styles.eyebrow}>Agama compliant architecture</p>
             <h2>
-              Every measurement, orientation, and deity placement follows
-              sacred guidelines.
+              Every measurement, orientation, and deity placement follows sacred
+              guidelines.
             </h2>
           </div>
           <div>
             <p>
-              Our work is anchored in Agama Shastra, Vastu Shastra, and
-              Silpa Shastra. From Garbhagriha planning to Vimanam, Gopuram,
-              Mandapam, idol proportions, and final consecration readiness,
-              each decision is validated through a Sthapathi-led process.
+              Our work is anchored in Agama Shastra, Vastu Shastra, and Silpa
+              Shastra. From Garbhagriham planning to Vimanam, Gopuram, Mandapam,
+              idol proportions, and final consecration readiness, each decision
+              is validated through a Sthapathi-led process.
             </p>
           </div>
         </div>

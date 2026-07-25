@@ -9,14 +9,16 @@ export default function CompanyStory() {
         <div>
           <p className={styles.eyebrow}>Company story</p>
           <h2 className={styles.sectionTitle}>
-            Not a conventional contractor, but a Sthapathi-led temple institution
+            Not a conventional contractor, but a Sthapathi-led temple
+            institution
           </h2>
           <p className={styles.sectionCopy}>
-            We specialize in temple construction services, Hindu temple architecture,
-            Agama-compliant temple design, sacred sculpture, and traditional temple
-            renovation. From Garbhagriha planning to Vimanam, Gopuram, Rajagopuram,
-            Mandapam, and deity sculpture, every aspect is guided by authentic
-            temple architecture principles followed for generations.
+            We specialize in temple construction services, Hindu temple
+            architecture, Agama-compliant temple design, sacred sculpture, and
+            traditional temple renovation. From Garbhagriham planning to
+            Vimanam, Gopuram, Rajagopuram, Mandapam, and deity sculpture, every
+            aspect is guided by authentic temple architecture principles
+            followed for generations.
           </p>
           <ul className={styles.detailList}>
             <li>Agama-based planning and temple proportions.</li>
@@ -32,7 +34,9 @@ export default function CompanyStory() {
           />
           <figcaption className={styles.imagePanelCaption}>
             <strong>Tamil Nadu roots</strong>
-            <span>The foundation of authentic Dravidian temple architecture.</span>
+            <span>
+              The foundation of authentic Dravidian temple architecture.
+            </span>
           </figcaption>
         </figure>
       </div>
