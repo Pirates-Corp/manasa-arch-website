@@ -10,9 +10,9 @@
     "dev": "remix vite:dev",
     "build": "remix vite:build",
     "start:prod": "remix-serve build/server/index.js",
-    "start:devbranch": "set PORT=4021 && npx remix-serve ./build/server/index.js",
-    "start:uatbranch": "set PORT=5021 && npx remix-serve ./build/server/index.js",
-    "start:mainbranch": "set PORT=3021 && npx remix-serve ./build/server/index.js"
+    "start:devbranch": "set PORT=4081 && npx remix-serve ./build/server/index.js",
+    "start:uatbranch": "set PORT=5081 && npx remix-serve ./build/server/index.js",
+    "start:mainbranch": "set PORT=3081 && npx remix-serve ./build/server/index.js"
   },
   "keywords": [],
   "author": "",
