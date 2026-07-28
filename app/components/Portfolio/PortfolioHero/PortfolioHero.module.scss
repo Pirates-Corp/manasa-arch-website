@@ -1,0 +1,239 @@
+.heroSection {
+  position: relative;
+  display: grid;
+  align-items: center;
+  min-height: calc(100vh - 78px);
+  overflow: hidden;
+  color: var(--color-ink-inverse);
+  isolation: isolate;
+}
+
+.heroSection::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background-color: var(--color-primary);
+  background-image: var(--hero-bg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: var(--hero-focal, center 10%);
+  animation: heroZoom 25s ease-in-out infinite alternate;
+}
+
+.heroSection::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+      90deg,
+      rgba(0, 12, 46, 0.92) 0%,
+      rgba(1, 22, 70, 0.78) 40%,
+      rgba(1, 33, 105, 0.45) 70%,
+      rgba(1, 33, 105, 0.25) 100%
+    ),
+    linear-gradient(180deg, transparent 70%, rgba(255, 252, 245, 0.15) 100%);
+}
+
+@keyframes heroZoom {
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(1.015);
+  }
+}
+
+.inner {
+  position: relative;
+  z-index: 1;
+  width: min(1180px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 80px 0 100px;
+}
+
+.heroContent {
+  position: relative;
+  max-width: 760px;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+
+  &:global(.visible),
+  &:global(.active) {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 20px;
+  padding: 6px 16px 6px 0;
+  color: var(--color-gold-soft);
+  font-size: 0.75rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.eyebrow::before {
+  content: "";
+  display: block;
+  width: 32px;
+  height: 2px;
+  flex-shrink: 0;
+  border-radius: 1px;
+  background: var(--color-gold);
+}
+
+.title {
+  margin: 0;
+  color: var(--color-ink-inverse);
+  font-family: var(--font-display);
+  font-size: 2.35rem;
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+}
+
+.titleAccent {
+  display: block;
+  margin-top: 4px;
+  font-size: 3.15rem;
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  background: linear-gradient(135deg, #ffffff 0%, #f5dfaf 60%, #c8912c 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+  max-width: 620px;
+  margin: 24px 0 0;
+  color: rgba(255, 255, 255, 0.82);
+  font-family: var(--font-body);
+  font-size: 1.08rem;
+  font-weight: 400;
+  line-height: 1.72;
+  letter-spacing: 0.01em;
+}
+
+// .editorialLine {
+//   width: 128px;
+//   height: 2px;
+//   margin-top: 38px;
+//   background: linear-gradient(to right, var(--color-gold) 40%, transparent 100%);
+// }
+
+.bottomFade {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  height: 120px;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(255, 252, 245, 0.6) 60%,
+    rgba(255, 252, 245, 0.95) 100%
+  );
+}
+
+@media (max-width: 1020px) {
+  .title {
+    font-size: 2.2rem;
+  }
+
+  .titleAccent {
+    font-size: 2.85rem;
+  }
+}
+
+@media (max-width: 860px) {
+  .heroSection {
+    min-height: auto;
+  }
+
+  .heroSection::before {
+    background-position: center center;
+  }
+
+  .inner {
+    padding: 64px 0 88px;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .titleAccent {
+    font-size: 2.5rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 620px) {
+  .inner {
+    width: min(100% - 28px, 1180px);
+    padding: 48px 0 72px;
+  }
+
+  .title {
+    font-size: 1.72rem;
+  }
+
+  .titleAccent {
+    font-size: 2.1rem;
+  }
+
+  .subtitle {
+    font-size: 0.95rem;
+    line-height: 1.65;
+  }
+
+  // .editorialLine {
+  //   margin-top: 30px;
+  // }
+
+  .bottomFade {
+    height: 96px;
+  }
+}
+
+@media (max-width: 420px) {
+  .title {
+    font-size: 1.55rem;
+  }
+
+  .titleAccent {
+    font-size: 1.82rem;
+  }
+
+  .eyebrow {
+    font-size: 0.68rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .heroSection::before {
+    animation: none;
+  }
+}

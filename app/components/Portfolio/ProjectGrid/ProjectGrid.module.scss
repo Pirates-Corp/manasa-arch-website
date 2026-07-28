@@ -1,0 +1,85 @@
+@import "../PortfolioShared.scss";
+
+.projectsSection {
+  padding: 96px 0;
+  background-color: $color-bg-low;
+
+  @media (max-width: 860px) {
+    padding: 72px 0;
+  }
+}
+
+.sectionHeader {
+  margin-bottom: 42px;
+
+  @media (max-width: 860px) {
+    margin-bottom: 32px;
+  }
+
+  @media (max-width: 620px) {
+    margin-bottom: 24px;
+  }
+}
+
+.headerFlex {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  border-bottom: 1px solid rgba($color-outline, 0.3);
+  padding-bottom: 18px;
+
+  h3 {
+    font-family: $font-display;
+    font-size: 2.7rem;
+    font-weight: 400;
+    line-height: 1.1;
+    margin: 0;
+
+    @media (max-width: 860px) {
+      font-size: 2.35rem;
+    }
+
+    @media (max-width: 620px) {
+      font-size: 2rem;
+    }
+  }
+
+  span {
+    font-family: $font-sans;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    color: $color-text-muted;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+}
+
+.projectsGridContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 42px 24px;
+
+  @media (max-width: 860px) {
+    gap: 32px 20px;
+  }
+
+  @media (max-width: 620px) {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+
+  &:global(.visible),
+  &:global(.active) {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

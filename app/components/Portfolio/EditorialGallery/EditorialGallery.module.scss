@@ -1,0 +1,116 @@
+@import "../PortfolioShared.scss";
+
+.gallerySection {
+  padding: 0 0 96px;
+  background-color: $color-bg-surface;
+
+  @media (max-width: 860px) {
+    padding-bottom: 72px;
+  }
+}
+
+.galleryRow {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  gap: 32px;
+  align-items: end;
+
+  @media (max-width: 860px) {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+}
+
+.galleryLeftFigure {
+  margin: 0;
+}
+
+.galleryRightFigure {
+  margin: 0;
+}
+
+.aspect1610 {
+  aspect-ratio: 16 / 10;
+  width: 100%;
+  overflow: hidden;
+  background-color: $color-bg-low;
+
+  img {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    object-fit: cover;
+  }
+}
+
+.aspect34 {
+  aspect-ratio: 3 / 4;
+  width: 100%;
+  overflow: hidden;
+  background-color: $color-bg-low;
+
+  img {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    object-fit: cover;
+  }
+}
+
+.galleryCaption {
+  font-family: $font-sans;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: $color-text-muted;
+  margin-top: 14px;
+  text-transform: uppercase;
+}
+
+.galleryFullRow {
+  margin-top: 56px;
+
+  @media (max-width: 860px) {
+    margin-top: 42px;
+  }
+}
+
+.fullFigure {
+  margin: 0;
+}
+
+.aspectVideo {
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  overflow: hidden;
+  border: 1px solid rgba($color-outline, 0.2);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  background-color: $color-bg-low;
+
+  img {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    object-fit: cover;
+  }
+}
+
+.captionCenter {
+  text-align: center;
+}
+
+// Scroll Reveal (Detail page variant)
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: opacity, transform;
+
+  &:global(.visible),
+  &:global(.active) {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
