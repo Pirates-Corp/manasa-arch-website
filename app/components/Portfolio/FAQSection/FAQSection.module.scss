@@ -85,7 +85,12 @@
       display: none;
     }
 
-    h5 {
+    &:focus-visible {
+      outline: 2px solid $color-gold;
+      outline-offset: 4px;
+    }
+
+    h3 {
       font-family: $font-display;
       font-size: 1.2rem;
       font-weight: 400;

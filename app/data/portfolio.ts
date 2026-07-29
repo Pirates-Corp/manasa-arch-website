@@ -475,7 +475,7 @@ export const editorialContent = {
       "The integration of Agama-compliant architecture, traditional craftsmanship, and 5 generations of Sthapathi lineage.",
   },
   projectsIndex: {
-    title: "Temple Projects",
+    title: "Our Projects",
     counter: "01 — 05 / INDEX",
   },
   faq: {

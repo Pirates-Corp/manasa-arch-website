@@ -30,7 +30,7 @@ export default function DetailHero({ project }: DetailHeroProps) {
               <span className={styles.chevron} aria-hidden="true">
                 arrow_forward_ios
               </span>
-              <span style={{ color: "#ffffff" }}>{project.title}</span>
+              <span className={styles.breadcrumbCurrent}>{project.title}</span>
             </nav>
             <div className={styles.badgeRow}>
               <span className={styles.badgeStatus}>

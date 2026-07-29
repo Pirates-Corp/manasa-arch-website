@@ -1,7 +1,7 @@
 import React from "react";
-import { Link } from "@remix-run/react";
 import { editorialContent } from "../../../data/portfolio";
 import { useScrollReveal } from "../../../utils/useScrollReveal";
+import PremiumCtaButton from "../../PremiumCtaButton/PremiumCtaButton";
 import styles from "./CTASection.module.scss";
 
 export default function CTASection() {
@@ -31,12 +31,9 @@ export default function CTASection() {
             <p className={styles.ctaSubnote}>{editorialContent.cta.note}</p>
           </div>
           <div className={styles.ctaButtonsCol}>
-            <Link to="/contact" className={styles.ctaPrimaryButton}>
-              <span>{editorialContent.cta.primaryAction}</span>
-              <span className={styles.arrowIcon} aria-hidden="true">
-                arrow_right_alt
-              </span>
-            </Link>
+            <PremiumCtaButton to="/contact">
+              {editorialContent.cta.primaryAction}
+            </PremiumCtaButton>
             {/* <Link
             to="/contact?inquiry=shastra-audit"
             className={styles.ctaSecondaryButton}

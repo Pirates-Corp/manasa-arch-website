@@ -3,7 +3,6 @@ import {
   json,
   type LoaderFunctionArgs,
   type MetaFunction,
-  type LinksFunction,
 } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 import Navbar from "../components/Navbar/Navbar";
@@ -16,17 +15,6 @@ import RelatedProjects from "../components/Portfolio/RelatedProjects/RelatedProj
 import CTASection from "../components/Portfolio/CTASection/CTASection";
 import { getProjectBySlug } from "../data/portfolio";
 import { seoKeywords } from "../utils/seo";
-
-export const links: LinksFunction = () => [
-  {
-    rel: "stylesheet",
-    href: "https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Inter:wght@300;400;500;600;700&display=swap",
-  },
-  {
-    rel: "stylesheet",
-    href: "https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap",
-  },
-];
 
 export async function loader({ params }: LoaderFunctionArgs) {
   const { slug } = params;

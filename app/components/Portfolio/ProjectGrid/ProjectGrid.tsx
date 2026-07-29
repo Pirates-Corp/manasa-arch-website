@@ -19,7 +19,7 @@ export default function ProjectGrid() {
           className={`${styles.sectionHeader} ${styles.reveal}`}
         >
           <div className={styles.headerFlex}>
-            <h3>Temple Projects</h3>
+            <h2>Our Projects</h2>
             <span>01 — 04 / INDEX</span>
           </div>
         </div>

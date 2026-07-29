@@ -20,6 +20,11 @@
   text-decoration: none;
   color: inherit;
   cursor: pointer;
+
+  &:focus-visible {
+    outline: 2px solid $color-gold;
+    outline-offset: 4px;
+  }
 }
 
 .featuredImageContainer {
@@ -27,7 +32,7 @@
   aspect-ratio: 21 / 9;
   overflow: hidden;
   border-radius: 0;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 25px 50px -12px rgba($color-ink-primary, 0.24);
 
   @media (max-width: 768px) {
     aspect-ratio: 16 / 9;
@@ -92,7 +97,7 @@
   border-radius: 50%;
 
   &.inProgress {
-    background-color: $color-outline;
+    background-color: $color-text-muted;
   }
 }
 

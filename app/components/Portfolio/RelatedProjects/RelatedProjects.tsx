@@ -25,7 +25,7 @@ export default function RelatedProjects({ project }: RelatedProjectsProps) {
           <div className={styles.relatedHeader}>
             <div className={styles.relatedHeaderLeft}>
               <span className={styles.relatedEyebrow}>Continue Exploring</span>
-              <h2>Related Temple Projects</h2>
+              <h2>Related Our Projects</h2>
             </div>
             <Link to="/portfolio" className={styles.viewCollection}>
               <span>View Collection</span>

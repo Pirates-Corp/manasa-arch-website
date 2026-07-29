@@ -1,5 +1,4 @@
 import React, { useRef, useState } from "react";
-import { Link } from "@remix-run/react";
 import {
   ArrowLeft,
   ArrowRight,
@@ -29,7 +28,7 @@ const milestones: Milestone[] = [
     icon: Handshake,
   },
   {
-    title: "Agama Planning",
+    title: "Agama & Vastu Planning",
     description: "In-depth study of Agama Shastras and Vastu alignment.",
     icon: BookOpen,
   },
@@ -65,6 +64,7 @@ export default function ProcessSection() {
   const journeyScrollerRef = useRef<HTMLDivElement>(null);
   const milestoneRefs = useRef<Array<HTMLButtonElement | null>>([]);
   const [activeMilestone, setActiveMilestone] = useState(2);
+  const [tooltipMilestone, setTooltipMilestone] = useState<number | null>(null);
   const progress = (activeMilestone / (milestones.length - 1)) * 100;
 
   const activateMilestone = (index: number) => {
@@ -170,9 +170,17 @@ export default function ProcessSection() {
                     style={
                       { "--milestone-index": index } as React.CSSProperties
                     }
-                    onClick={() => activateMilestone(index)}
+                    onClick={() => {
+                      activateMilestone(index);
+                      setTooltipMilestone(index);
+                    }}
+                    onFocus={() => setTooltipMilestone(index)}
+                    onBlur={() => setTooltipMilestone(null)}
+                    onMouseEnter={() => setTooltipMilestone(index)}
+                    onMouseLeave={() => setTooltipMilestone(null)}
                     onKeyDown={(event) => handleMilestoneKeyDown(event, index)}
                     aria-pressed={isActive}
+                    aria-describedby={`milestone-tooltip-${index}`}
                     tabIndex={isActive ? 0 : -1}
                   >
                     <span className={styles.iconShell} aria-hidden="true">
@@ -183,7 +191,14 @@ export default function ProcessSection() {
                       {milestone.title}
                     </span>
                     <span className={styles.titleRule} aria-hidden="true" />
-                    <span className={styles.milestoneDescription}>
+                    <span
+                      className={`${styles.milestoneDescription} ${
+                        tooltipMilestone === index
+                          ? styles.milestoneDescriptionVisible
+                          : ""
+                      }`}
+                      id={`milestone-tooltip-${index}`}
+                    >
                       {milestone.description}
                     </span>
                     {isActive && (
@@ -251,25 +266,6 @@ export default function ProcessSection() {
             Swipe to explore
           </p>
         </div>
-
-        <aside
-          className={styles.ctaBanner}
-          aria-label="Explore temple projects"
-        >
-          <div className={styles.ctaIcon} aria-hidden="true">
-            <Landmark size={56} strokeWidth={1.45} />
-          </div>
-          <div className={styles.ctaCopy}>
-            <strong>
-              Every phase is guided by devotion, precision and tradition.
-            </strong>
-            <span>We don't just build temples. We manifest divinity.</span>
-          </div>
-          <Link className={styles.ctaLink} to="/portfolio">
-            <span>Explore our projects</span>
-            <ArrowRight size={25} aria-hidden="true" />
-          </Link>
-        </aside>
       </div>
     </section>
   );

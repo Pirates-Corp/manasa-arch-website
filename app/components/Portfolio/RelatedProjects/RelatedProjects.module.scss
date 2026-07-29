@@ -77,6 +77,11 @@
     border-bottom-color: $color-gold;
     gap: 14px;
   }
+
+  &:focus-visible {
+    outline: 2px solid $color-gold;
+    outline-offset: 4px;
+  }
 }
 
 .viewCollectionArrow {
@@ -155,16 +160,16 @@
   flex-direction: column;
 
   .relatedCard:hover & {
-    box-shadow: 0 24px 64px -16px rgba(0, 0, 0, 0.1),
-      0 4px 20px -4px rgba(0, 0, 0, 0.04);
-    border-color: rgba($color-outline, 0.3);
+    box-shadow: 0 24px 64px -16px rgba($color-ink-primary, 0.14),
+      0 4px 20px -4px rgba($color-ink-primary, 0.06);
+    border-color: rgba($color-gold, 0.38);
     transform: translateY(-4px);
   }
 
   @media (max-width: 860px) {
     .relatedCard:hover & {
       transform: translateY(-2px);
-      box-shadow: 0 12px 32px -10px rgba(0, 0, 0, 0.08);
+      box-shadow: 0 12px 32px -10px rgba($color-ink-primary, 0.12);
     }
   }
 }
@@ -202,7 +207,11 @@
 .relatedImageOverlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.12) 0%, transparent 40%);
+  background: linear-gradient(
+    to top,
+    rgba($color-ink-primary, 0.18) 0%,
+    transparent 40%
+  );
   pointer-events: none;
   z-index: 1;
 }

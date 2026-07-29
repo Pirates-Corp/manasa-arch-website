@@ -39,7 +39,7 @@ export default function FAQSection() {
                 defaultOpen={index === 0}
               >
                 <summary>
-                  <h5>{faq.question}</h5>
+                  <h3>{faq.question}</h3>
                   <span className={styles.accordionIcon} aria-hidden="true">
                     add
                   </span>

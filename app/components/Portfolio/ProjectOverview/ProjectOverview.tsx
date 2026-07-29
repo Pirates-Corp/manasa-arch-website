@@ -33,7 +33,7 @@ export default function ProjectOverview({ project }: ProjectOverviewProps) {
             <div className={styles.metaList}>
               {/* Project Details */}
               <div className={styles.metaGroup}>
-                <h4>PROJECT</h4>
+                <h3>PROJECT</h3>
                 <ul>
                   <li>
                     <span>Name</span>
@@ -56,7 +56,7 @@ export default function ProjectOverview({ project }: ProjectOverviewProps) {
 
               {/* Client Details */}
               <div className={styles.metaGroup}>
-                <h4>CLIENT</h4>
+                <h3>CLIENT</h3>
                 <ul>
                   <li>
                     <span>Organization</span>

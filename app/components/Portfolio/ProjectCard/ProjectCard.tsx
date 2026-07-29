@@ -57,7 +57,7 @@ export default function ProjectCard({ project, index = 0 }: ProjectCardProps) {
             </div>
 
             {/* Title */}
-            <h4 className={styles.cardTitle}>{project.title}</h4>
+            <h3 className={styles.cardTitle}>{project.title}</h3>
 
             {/* Description */}
             <p className={styles.cardDesc}>{project.summary}</p>

@@ -5,7 +5,7 @@ import Navbar from "../components/Navbar/Navbar";
 import PageHero from "../components/ServicePage/PageHero/PageHero";
 import EndToEndSolutions from "../components/ServicePage/EndToEndSolutions/EndToEndSolutions";
 import ExecutionCapability from "../components/ServicePage/ExecutionCapability/ExecutionCapability";
-import Process from "../components/ServicePage/Process/Process";
+import ProcessSection from "../components/HomePage/ProcessSection/ProcessSection";
 import ConstructionCost from "../components/ServicePage/ConstructionCost/ConstructionCost";
 import Faqs from "../components/ServicePage/Faqs/Faqs";
 import { seoKeywords } from "../utils/seo";
@@ -31,7 +31,7 @@ export default function Service() {
         <PageHero />
         <EndToEndSolutions />
         <ExecutionCapability />
-        <Process />
+        <ProcessSection />
         <ConstructionCost />
         <Faqs />
       </main>

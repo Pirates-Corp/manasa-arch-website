@@ -2,7 +2,7 @@
   position: relative;
   display: grid;
   align-items: center;
-  min-height: calc(100vh - 78px);
+  padding: 90px 0 80px;
   overflow: hidden;
   color: var(--color-ink-inverse);
   isolation: isolate;
@@ -17,7 +17,7 @@
   background-image: var(--hero-bg);
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: var(--hero-focal, center 10%);
+  background-position: center 14%;
   animation: heroZoom 25s ease-in-out infinite alternate;
 }
 
@@ -26,14 +26,18 @@
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: linear-gradient(
-      90deg,
-      rgba(0, 12, 46, 0.92) 0%,
-      rgba(1, 22, 70, 0.78) 40%,
-      rgba(1, 33, 105, 0.45) 70%,
-      rgba(1, 33, 105, 0.25) 100%
+  background: radial-gradient(
+      circle at 78% 42%,
+      rgba(245, 223, 175, 0.1),
+      transparent 34%
     ),
-    linear-gradient(180deg, transparent 70%, rgba(255, 252, 245, 0.15) 100%);
+    linear-gradient(
+      90deg,
+      rgba(0, 15, 54, 0.95) 0%,
+      rgba(1, 27, 82, 0.79) 48%,
+      rgba(1, 33, 105, 0.66) 100%
+    ),
+    linear-gradient(180deg, rgba(0, 10, 38, 0.12), transparent 52%);
 }
 
 @keyframes heroZoom {
@@ -51,12 +55,12 @@
   z-index: 1;
   width: min(1180px, calc(100% - 40px));
   margin: 0 auto;
-  padding: 80px 0 100px;
+  padding: 0;
 }
 
 .heroContent {
   position: relative;
-  max-width: 760px;
+  max-width: 860px;
 }
 
 .reveal {
@@ -94,7 +98,7 @@
   height: 2px;
   flex-shrink: 0;
   border-radius: 1px;
-  background: var(--color-gold);
+  background: linear-gradient(90deg, var(--color-gold), var(--color-gold-soft));
 }
 
 .title {
@@ -121,7 +125,7 @@
 }
 
 .subtitle {
-  max-width: 620px;
+  max-width: 720px;
   margin: 24px 0 0;
   color: rgba(255, 255, 255, 0.82);
   font-family: var(--font-body);
@@ -144,29 +148,30 @@
   bottom: 0;
   left: 0;
   z-index: 2;
-  height: 120px;
+  height: 72px;
   pointer-events: none;
   background: linear-gradient(
     180deg,
     transparent 0%,
-    rgba(255, 252, 245, 0.6) 60%,
-    rgba(255, 252, 245, 0.95) 100%
+    rgba(255, 252, 245, 0.12) 48%,
+    rgba(255, 252, 245, 0.52) 78%,
+    var(--color-surface) 100%
   );
 }
 
 @media (max-width: 1020px) {
   .title {
-    font-size: 2.2rem;
+    font-size: 2.5rem;
   }
 
   .titleAccent {
-    font-size: 2.85rem;
+    font-size: 3.2rem;
   }
 }
 
 @media (max-width: 860px) {
   .heroSection {
-    min-height: auto;
+    padding: 72px 0 64px;
   }
 
   .heroSection::before {
@@ -174,15 +179,15 @@
   }
 
   .inner {
-    padding: 64px 0 88px;
+    padding: 0;
   }
 
   .title {
-    font-size: 2rem;
+    font-size: 2.2rem;
   }
 
   .titleAccent {
-    font-size: 2.5rem;
+    font-size: 2.7rem;
   }
 
   .subtitle {
@@ -193,15 +198,19 @@
 @media (max-width: 620px) {
   .inner {
     width: min(100% - 28px, 1180px);
-    padding: 48px 0 72px;
+    padding: 0;
+  }
+
+  .heroSection {
+    padding: 56px 0 48px;
   }
 
   .title {
-    font-size: 1.72rem;
+    font-size: 1.8rem;
   }
 
   .titleAccent {
-    font-size: 2.1rem;
+    font-size: 2.2rem;
   }
 
   .subtitle {
@@ -214,17 +223,17 @@
   // }
 
   .bottomFade {
-    height: 96px;
+    height: 64px;
   }
 }
 
 @media (max-width: 420px) {
   .title {
-    font-size: 1.55rem;
+    font-size: 1.6rem;
   }
 
   .titleAccent {
-    font-size: 1.82rem;
+    font-size: 1.9rem;
   }
 
   .eyebrow {

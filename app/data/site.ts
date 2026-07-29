@@ -44,16 +44,6 @@ export const countries = [
   "Europe",
 ];
 
-export const processSteps = [
-  "Consultation",
-  "Agama Planning",
-  "Architecture",
-  "Sculpture",
-  "Construction",
-  "Finalization",
-  "Kumbabishekam",
-];
-
 export const leadershipAttributes = [
   "Tamil Nadu Government-approved Sthapathi",
   "Regional Sthapathi approved by Government - Tiruvannamalai Region",
@@ -62,11 +52,31 @@ export const leadershipAttributes = [
 ];
 
 export const lineageTimeline = [
-  { generation: "5th", name: "Kannan Muthalugu Vishvakarma Sthapathi", note: "Founder and current generation." },
-  { generation: "4th", name: "Muthalugu Vishvakarma Sthapathi", note: "Father and lineage carrier." },
-  { generation: "3rd", name: "Shanmuga Vishvakarma Sthapathi", note: "Contributed to the Madurai Meenakshi Amman Temple in 1963." },
-  { generation: "2nd", name: "Ponniya Vishvakarma Sthapathi", note: "Great grandfather and sacred craft practitioner." },
-  { generation: "1st", name: "Muthalugu Vishvakarma Sthapathi", note: "Earlier generation of hereditary temple architecture knowledge." },
+  {
+    generation: "5th",
+    name: "Kannan Muthalugu Vishvakarma Sthapathi",
+    note: "Founder and current generation.",
+  },
+  {
+    generation: "4th",
+    name: "Muthalugu Vishvakarma Sthapathi",
+    note: "Father and lineage carrier.",
+  },
+  {
+    generation: "3rd",
+    name: "Shanmuga Vishvakarma Sthapathi",
+    note: "Contributed to the Madurai Meenakshi Amman Temple in 1963.",
+  },
+  {
+    generation: "2nd",
+    name: "Ponniya Vishvakarma Sthapathi",
+    note: "Great grandfather and sacred craft practitioner.",
+  },
+  {
+    generation: "1st",
+    name: "Muthalugu Vishvakarma Sthapathi",
+    note: "Earlier generation of hereditary temple architecture knowledge.",
+  },
 ];
 
 export const methodologies = [
@@ -87,4 +97,3 @@ export const methodologies = [
     text: "Projects can adapt to international building and logistics requirements.",
   },
 ];
-
