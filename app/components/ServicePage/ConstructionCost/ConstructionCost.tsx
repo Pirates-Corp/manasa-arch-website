@@ -1,6 +1,5 @@
 import React from "react";
-import { Link } from "@remix-run/react";
-import { ArrowUpRight } from "lucide-react";
+import PremiumCtaButton from "../../PremiumCtaButton/PremiumCtaButton";
 import styles from "./ConstructionCost.module.scss";
 
 export default function ConstructionCost() {
@@ -22,13 +21,9 @@ export default function ConstructionCost() {
             and site conditions.
           </p>
           <div className={styles.ctaRow}>
-            <Link
-              className={`${styles.button} ${styles.buttonPrimary}`}
-              to="/contact"
-            >
+            <PremiumCtaButton to="/contact">
               Request a Project-Based Estimate
-              <ArrowUpRight size={17} />
-            </Link>
+            </PremiumCtaButton>
           </div>
         </div>
       </div>

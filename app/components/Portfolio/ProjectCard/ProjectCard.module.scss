@@ -1,0 +1,239 @@
+@import "../PortfolioShared.scss";
+
+.gridCardItem {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.gridCardLink {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  width: 100%;
+  outline: none;
+
+  &:focus-visible .cardSurface {
+    outline: 2px solid $color-gold;
+    outline-offset: 4px;
+  }
+}
+
+.cardSurface {
+  position: relative;
+  background-color: $color-white;
+  border: 1px solid rgba($color-outline, 0.18);
+  transition: box-shadow 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+
+  .gridCardLink:hover & {
+    box-shadow: 0 20px 60px -15px rgba($color-ink-primary, 0.12),
+      0 4px 20px -5px rgba($color-ink-primary, 0.06);
+    border-color: rgba($color-gold, 0.38);
+    transform: translateY(-3px);
+  }
+
+  @media (max-width: 860px) {
+    .gridCardLink:hover & {
+      transform: none;
+      box-shadow: 0 8px 30px -10px rgba($color-ink-primary, 0.1);
+    }
+  }
+}
+
+.gridCardImageContainer {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background-color: $color-bg-surface;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 1.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .gridCardLink:hover & img {
+    transform: scale(1.035);
+  }
+}
+
+.imageBindGradient {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 40%;
+  background: linear-gradient(
+    to top,
+    rgba($color-white, 0.06) 0%,
+    transparent 100
+  );
+  pointer-events: none;
+}
+
+.gridCardContent {
+  padding: 24px 26px 26px;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+
+  @media (max-width: 620px) {
+    padding: 20px 20px 24px;
+  }
+}
+
+.cardMetadata {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 14px;
+
+  @media (max-width: 620px) {
+    gap: 6px;
+    margin-bottom: 10px;
+  }
+}
+
+.cardIndex {
+  font-family: $font-sans;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: $color-gold;
+  font-variant-numeric: tabular-nums;
+}
+
+.cardMetadataSeparator {
+  color: rgba($color-outline, 0.35);
+  font-size: 10px;
+  font-weight: 300;
+}
+
+.statusDot {
+  width: 8px;
+  height: 8px;
+  background-color: $color-gold;
+  border-radius: 50%;
+
+  &.inProgress {
+    background-color: $color-text-muted;
+  }
+}
+
+.statusLabel {
+  font-family: $font-sans;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: $color-gold;
+  text-transform: uppercase;
+
+  &.inProgress {
+    color: $color-text-muted;
+  }
+}
+
+.metadataLabel {
+  font-family: $font-sans;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: $color-text-muted;
+  text-transform: uppercase;
+}
+
+.cardTitle {
+  font-family: $font-display;
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1.25;
+  margin: 0 0 10px 0;
+  color: $color-ink-primary;
+  transition: color 0.4s ease;
+
+  .gridCardLink:hover & {
+    color: $color-ink-dark;
+  }
+
+  @media (max-width: 620px) {
+    font-size: 1.32rem;
+  }
+}
+
+.cardDesc {
+  font-family: $font-sans;
+  font-size: 0.94rem;
+  font-weight: 400;
+  line-height: 1.6;
+  color: $color-text-muted;
+  margin: 0 0 24px 0;
+  max-width: 100%;
+
+  @media (max-width: 620px) {
+    margin-bottom: 20px;
+    font-size: 14px;
+  }
+}
+
+.cardFooter {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.exploreLink {
+  font-family: $font-sans;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  color: $color-gold;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding-bottom: 4px;
+  position: relative;
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: $color-gold;
+    transition: width 0.3s ease;
+  }
+
+  .gridCardLink:hover &::after {
+    width: 100%;
+  }
+}
+
+.cardDividerLine {
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    rgba($color-gold, 0.25) 0%,
+    rgba($color-outline, 0.12) 60%,
+    transparent 100%
+  );
+  margin-top: 24px;
+  transition: opacity 0.4s ease;
+
+  .gridCardLink:hover & {
+    opacity: 0.6;
+  }
+
+  @media (max-width: 620px) {
+    margin-top: 20px;
+  }
+}

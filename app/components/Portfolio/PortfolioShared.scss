@@ -1,0 +1,24 @@
+// ─────────────────────────────────────────────────────────
+// Shared Portfolio Variables
+// ─────────────────────────────────────────────────────────
+
+// Typography is defined by the application-level design system.
+$font-display: var(--font-display);
+$font-sans: var(--font-body);
+
+// Colors
+$color-bg-surface: #fffcf5;
+$color-ink-primary: #012169;
+$color-ink-dark: #001646;
+$color-gold: #c8912c;
+$color-gold-highlight: #f5dfaf;
+$color-white: #ffffff;
+$color-text-muted: #34405b;
+$color-outline: #18233f;
+$color-bg-low: #f8f1e7;
+
+// Spacing
+$gutter: 32px;
+$margin-desktop: 80px;
+$margin-mobile: 24px;
+$section-gap: 120px;

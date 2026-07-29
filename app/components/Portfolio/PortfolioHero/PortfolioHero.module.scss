@@ -1,0 +1,248 @@
+.heroSection {
+  position: relative;
+  display: grid;
+  align-items: center;
+  padding: 90px 0 80px;
+  overflow: hidden;
+  color: var(--color-ink-inverse);
+  isolation: isolate;
+}
+
+.heroSection::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background-color: var(--color-primary);
+  background-image: var(--hero-bg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center 14%;
+  animation: heroZoom 25s ease-in-out infinite alternate;
+}
+
+.heroSection::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(
+      circle at 78% 42%,
+      rgba(245, 223, 175, 0.1),
+      transparent 34%
+    ),
+    linear-gradient(
+      90deg,
+      rgba(0, 15, 54, 0.95) 0%,
+      rgba(1, 27, 82, 0.79) 48%,
+      rgba(1, 33, 105, 0.66) 100%
+    ),
+    linear-gradient(180deg, rgba(0, 10, 38, 0.12), transparent 52%);
+}
+
+@keyframes heroZoom {
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(1.015);
+  }
+}
+
+.inner {
+  position: relative;
+  z-index: 1;
+  width: min(1180px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 0;
+}
+
+.heroContent {
+  position: relative;
+  max-width: 860px;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+
+  &:global(.visible),
+  &:global(.active) {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 20px;
+  padding: 6px 16px 6px 0;
+  color: var(--color-gold-soft);
+  font-size: 0.75rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.eyebrow::before {
+  content: "";
+  display: block;
+  width: 32px;
+  height: 2px;
+  flex-shrink: 0;
+  border-radius: 1px;
+  background: linear-gradient(90deg, var(--color-gold), var(--color-gold-soft));
+}
+
+.title {
+  margin: 0;
+  color: var(--color-ink-inverse);
+  font-family: var(--font-display);
+  font-size: 2.35rem;
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+}
+
+.titleAccent {
+  display: block;
+  margin-top: 4px;
+  font-size: 3.15rem;
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  background: linear-gradient(135deg, #ffffff 0%, #f5dfaf 60%, #c8912c 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+  max-width: 720px;
+  margin: 24px 0 0;
+  color: rgba(255, 255, 255, 0.82);
+  font-family: var(--font-body);
+  font-size: 1.08rem;
+  font-weight: 400;
+  line-height: 1.72;
+  letter-spacing: 0.01em;
+}
+
+// .editorialLine {
+//   width: 128px;
+//   height: 2px;
+//   margin-top: 38px;
+//   background: linear-gradient(to right, var(--color-gold) 40%, transparent 100%);
+// }
+
+.bottomFade {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  height: 72px;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(255, 252, 245, 0.12) 48%,
+    rgba(255, 252, 245, 0.52) 78%,
+    var(--color-surface) 100%
+  );
+}
+
+@media (max-width: 1020px) {
+  .title {
+    font-size: 2.5rem;
+  }
+
+  .titleAccent {
+    font-size: 3.2rem;
+  }
+}
+
+@media (max-width: 860px) {
+  .heroSection {
+    padding: 72px 0 64px;
+  }
+
+  .heroSection::before {
+    background-position: center center;
+  }
+
+  .inner {
+    padding: 0;
+  }
+
+  .title {
+    font-size: 2.2rem;
+  }
+
+  .titleAccent {
+    font-size: 2.7rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 620px) {
+  .inner {
+    width: min(100% - 28px, 1180px);
+    padding: 0;
+  }
+
+  .heroSection {
+    padding: 56px 0 48px;
+  }
+
+  .title {
+    font-size: 1.8rem;
+  }
+
+  .titleAccent {
+    font-size: 2.2rem;
+  }
+
+  .subtitle {
+    font-size: 0.95rem;
+    line-height: 1.65;
+  }
+
+  // .editorialLine {
+  //   margin-top: 30px;
+  // }
+
+  .bottomFade {
+    height: 64px;
+  }
+}
+
+@media (max-width: 420px) {
+  .title {
+    font-size: 1.6rem;
+  }
+
+  .titleAccent {
+    font-size: 1.9rem;
+  }
+
+  .eyebrow {
+    font-size: 0.68rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .heroSection::before {
+    animation: none;
+  }
+}

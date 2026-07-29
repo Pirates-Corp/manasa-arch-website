@@ -1,0 +1,379 @@
+@import "../PortfolioShared.scss";
+
+.relatedSection {
+  padding: 96px 0;
+  background-color: $color-bg-surface;
+
+  @media (max-width: 860px) {
+    padding: 72px 0;
+  }
+}
+
+// ── Section Header ────────────────────────────────────────
+
+.relatedHeader {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+
+  @media (max-width: 860px) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+}
+
+.relatedHeaderLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.relatedEyebrow {
+  font-family: $font-sans;
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  color: $color-gold;
+  text-transform: uppercase;
+}
+
+.relatedHeader h2 {
+  font-family: $font-display;
+  font-size: 2.7rem;
+  font-weight: 400;
+  color: $color-ink-primary;
+  margin: 0;
+  line-height: 1.1;
+
+  @media (max-width: 860px) {
+    font-size: 2.35rem;
+  }
+
+  @media (max-width: 620px) {
+    font-size: 2rem;
+  }
+}
+
+.viewCollection {
+  font-family: $font-sans;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  color: $color-gold;
+  text-transform: uppercase;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid rgba($color-gold, 0.3);
+  transition: border-bottom-color 0.3s ease, gap 0.3s ease;
+  white-space: nowrap;
+  flex-shrink: 0;
+
+  &:hover {
+    border-bottom-color: $color-gold;
+    gap: 14px;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $color-gold;
+    outline-offset: 4px;
+  }
+}
+
+.viewCollectionArrow {
+  display: inline-block;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  font-size: 14px;
+
+  .viewCollection:hover & {
+    transform: translateX(3px);
+  }
+}
+
+.relatedHeaderDivider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    rgba($color-gold, 0.3) 0%,
+    rgba($color-outline, 0.15) 50%,
+    transparent 100%
+  );
+  margin-top: 18px;
+  margin-bottom: 42px;
+
+  @media (max-width: 860px) {
+    margin-top: 14px;
+    margin-bottom: 32px;
+  }
+}
+
+// ── Grid ──────────────────────────────────────────────────
+
+.relatedGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+
+  @media (max-width: 1020px) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  @media (max-width: 620px) {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+// ── Card Link ─────────────────────────────────────────────
+
+.relatedCard {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  outline: none;
+
+  &:focus-visible .relatedCardSurface {
+    outline: 2px solid $color-gold;
+    outline-offset: 4px;
+  }
+}
+
+// ── Card Surface ──────────────────────────────────────────
+
+.relatedCardSurface {
+  position: relative;
+  background-color: $color-white;
+  border: 1px solid rgba($color-outline, 0.15);
+  overflow: hidden;
+  transition: box-shadow 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  .relatedCard:hover & {
+    box-shadow: 0 24px 64px -16px rgba($color-ink-primary, 0.14),
+      0 4px 20px -4px rgba($color-ink-primary, 0.06);
+    border-color: rgba($color-gold, 0.38);
+    transform: translateY(-4px);
+  }
+
+  @media (max-width: 860px) {
+    .relatedCard:hover & {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px -10px rgba($color-ink-primary, 0.12);
+    }
+  }
+}
+
+// ── Image ─────────────────────────────────────────────────
+
+.relatedImageWrapper {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  width: 100%;
+  overflow: hidden;
+  background-color: $color-bg-low;
+
+  img {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    object-fit: cover;
+    transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .relatedCard:hover & img {
+    transform: scale(1.04);
+  }
+
+  @media (max-width: 1020px) {
+    aspect-ratio: 3 / 4;
+  }
+
+  @media (max-width: 620px) {
+    aspect-ratio: 16 / 10;
+  }
+}
+
+.relatedImageOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba($color-ink-primary, 0.18) 0%,
+    transparent 40%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+.relatedStatusBadge {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  z-index: 2;
+  font-family: $font-sans;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 5px 12px;
+  background-color: $color-white;
+  color: $color-ink-primary;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+
+  &.statusInProgress {
+    background-color: rgba($color-white, 0.9);
+    color: $color-text-muted;
+  }
+}
+
+// ── Card Body ─────────────────────────────────────────────
+
+.relatedCardBody {
+  padding: 24px 26px 26px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+
+  @media (max-width: 620px) {
+    padding: 20px 20px 24px;
+  }
+}
+
+// ── Metadata ──────────────────────────────────────────────
+
+.relatedMeta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.relatedMetaIndex {
+  font-family: $font-sans;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: $color-gold;
+  font-variant-numeric: tabular-nums;
+}
+
+.relatedMetaSep {
+  font-family: $font-sans;
+  font-size: 10px;
+  font-weight: 300;
+  color: rgba($color-outline, 0.5);
+}
+
+.relatedMetaLocation,
+.relatedMetaCategory {
+  font-family: $font-sans;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: $color-text-muted;
+  text-transform: uppercase;
+}
+
+// ── Title ─────────────────────────────────────────────────
+
+.relatedTitle {
+  font-family: $font-display;
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1.25;
+  color: $color-ink-primary;
+  margin: 0 0 8px 0;
+  transition: color 0.3s ease;
+
+  .relatedCard:hover & {
+    color: $color-ink-dark;
+  }
+
+  @media (max-width: 1020px) {
+    font-size: 1.4rem;
+  }
+
+  @media (max-width: 620px) {
+    font-size: 1.32rem;
+  }
+}
+
+// ── Client ────────────────────────────────────────────────
+
+.relatedClient {
+  font-family: $font-sans;
+  font-size: 0.88rem;
+  font-weight: 400;
+  color: $color-text-muted;
+  margin: 0;
+  line-height: 1.4;
+  opacity: 0.8;
+}
+
+// ── Card Footer ───────────────────────────────────────────
+
+.relatedCardFooter {
+  margin-top: auto;
+  padding-top: 20px;
+  border-top: 1px solid rgba($color-outline, 0.12);
+
+  @media (max-width: 620px) {
+    padding-top: 16px;
+  }
+}
+
+.relatedCta {
+  font-family: $font-sans;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  color: $color-gold;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: gap 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+
+  .relatedCard:hover & {
+    gap: 12px;
+  }
+}
+
+.relatedCtaArrow {
+  display: inline-block;
+  font-size: 13px;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  line-height: 1;
+
+  .relatedCard:hover & {
+    transform: translateX(3px);
+  }
+}
+
+// Scroll Reveal (Detail page variant)
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: opacity, transform;
+
+  &:global(.visible),
+  &:global(.active) {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
