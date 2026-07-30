@@ -209,7 +209,7 @@ export const portfolioProjects: PortfolioProject[] = [
     heroImage: IMG.londonShiva,
     thumbnail: IMG.londonShiva,
     summary:
-      "Integrating Dravidian structural scale within a modern urban context.",
+      "A celebration of sacred Dravidian architecture, preserving authentic Agama craftsmanship through timeless devotion.",
     description: [
       "The London Shiva Kshetram represents an ambitious endeavour to establish a traditionally designed Dravidian temple within one of the world's most cosmopolitan cities. This project challenges our team to reconcile the monumental scale of classical gopuram design with contemporary building regulations and urban spatial constraints.",
       "Working closely with UK-based engineering consultants, our Sthapathis have developed a structural solution that honours every scriptural proportion while meeting modern seismic and wind-load requirements. The temple will serve as a spiritual landmark for the growing Hindu diaspora in London.",
