@@ -198,14 +198,36 @@ current Leadership profile card.
 }
 
 .lineageBadgeMini {
-  font-size: 0.68rem;
-  color: rgba(255, 255, 255, 0.4);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 5px 12px;
+
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  font-weight: 700;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 3px 10px;
-  border-radius: 4px;
+
+  color: rgba(255, 255, 255, 0.78);
+
+  background: rgba(255, 255, 255, 0.05);
+
+  border: 1px solid rgba(200, 145, 44, 0.18);
+
+  border-radius: 999px;
+
+  backdrop-filter: blur(6px);
+
+  transition: color 220ms ease, border-color 220ms ease, background 220ms ease;
+}
+
+.profileCard:hover .lineageBadgeMini {
+  color: rgba(255, 255, 255, 0.92);
+
+  border-color: rgba(200, 145, 44, 0.35);
+
+  background: rgba(200, 145, 44, 0.08);
 }
 
 /* Narrative / Right Column */
@@ -587,6 +609,12 @@ Currently disabled.
 
   .profileCard {
     padding: 32px 24px;
+  }
+
+  .profileFooter {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
   }
 
   .profileName {

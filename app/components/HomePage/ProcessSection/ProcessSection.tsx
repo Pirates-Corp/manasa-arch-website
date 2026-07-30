@@ -190,7 +190,7 @@ export default function ProcessSection() {
                     <span className={styles.milestoneTitle}>
                       {milestone.title}
                     </span>
-                    <span className={styles.titleRule} aria-hidden="true" />
+
                     <span
                       className={`${styles.milestoneDescription} ${
                         tooltipMilestone === index
