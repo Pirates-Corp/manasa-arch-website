@@ -9,13 +9,6 @@ export interface GalleryItem {
   aspectRatio: string;
 }
 
-export interface TimelineStep {
-  step: string;
-  title: string;
-  description: string;
-  isHighlight?: boolean;
-}
-
 export interface Testimonial {
   name: string;
   designation: string;
@@ -37,7 +30,6 @@ export interface PortfolioProject {
   summary: string;
   description: string[];
   gallery: GalleryItem[];
-  timeline: TimelineStep[];
   client: {
     organization: string;
     location: string;
@@ -132,45 +124,6 @@ export const portfolioProjects: PortfolioProject[] = [
         aspectRatio: "16/9",
       },
     ],
-    timeline: [
-      {
-        step: "01",
-        title: "Scriptural Planning",
-        description:
-          "Defining the deity alignment according to ancient Agama texts.",
-      },
-      {
-        step: "02",
-        title: "Site Vastu",
-        description:
-          "Orientation and energetic balancing of the temple grounds.",
-      },
-      {
-        step: "03",
-        title: "Stone Selection",
-        description:
-          "Sourcing specific granite blocks for pure 'Shila' resonance.",
-      },
-      {
-        step: "04",
-        title: "Artisanal Carving",
-        description:
-          "Hand-crafting icons by specialized sthapathis over decades.",
-      },
-      {
-        step: "05",
-        title: "Structural Raising",
-        description:
-          "Interlocking stone joinery without modern adhesives or bolts.",
-      },
-      {
-        step: "06",
-        title: "Consecration",
-        description:
-          "The final Maha Kumbabishekam spiritual activation ceremony.",
-        isHighlight: true,
-      },
-    ],
     client: {
       organization: "Heritage Trust",
       location: "India",
@@ -220,32 +173,6 @@ export const portfolioProjects: PortfolioProject[] = [
         alt: "Architectural rendering of the London Shiva Kshetram",
         caption: "Fig. 01 — Conceptual Elevation Drawing",
         aspectRatio: "16/10",
-      },
-    ],
-    timeline: [
-      {
-        step: "01",
-        title: "Scriptural Planning",
-        description:
-          "Adapting Agama specifications for the UK climate and regulatory environment.",
-      },
-      {
-        step: "02",
-        title: "Site Vastu",
-        description:
-          "Energetic orientation within the constraints of the London site.",
-      },
-      {
-        step: "03",
-        title: "Stone Selection",
-        description: "Sourcing durable granite suited to the British climate.",
-      },
-      {
-        step: "04",
-        title: "Artisanal Carving",
-        description:
-          "Master carvers preparing deity panels in Indian workshops.",
-        isHighlight: true,
       },
     ],
     client: {
@@ -298,39 +225,6 @@ export const portfolioProjects: PortfolioProject[] = [
         aspectRatio: "16/10",
       },
     ],
-    timeline: [
-      {
-        step: "01",
-        title: "Heritage Assessment",
-        description:
-          "Documenting the original structure's condition and historical significance.",
-      },
-      {
-        step: "02",
-        title: "Scriptural Verification",
-        description:
-          "Cross-referencing surviving elements with Shilpa Shastra texts.",
-      },
-      {
-        step: "03",
-        title: "Stone Matching",
-        description:
-          "Sourcing granite identical to the original Chola-era blocks.",
-      },
-      {
-        step: "04",
-        title: "Traditional Restoration",
-        description:
-          "Applying Jeernoddhara techniques for authentic structural repair.",
-      },
-      {
-        step: "05",
-        title: "Consecration",
-        description:
-          "Re-consecration ceremony restoring the shrine's spiritual activation.",
-        isHighlight: true,
-      },
-    ],
     client: {
       organization: "Tamil Nadu Heritage Authority",
       location: "India",
@@ -380,26 +274,6 @@ export const portfolioProjects: PortfolioProject[] = [
         alt: "Architectural rendering of the North American Agama Temple complex",
         caption: "Fig. 01 — Campus Master Plan",
         aspectRatio: "16/8",
-      },
-    ],
-    timeline: [
-      {
-        step: "01",
-        title: "Master Planning",
-        description: "Full campus layout designed for 12-acre site in Ontario.",
-      },
-      {
-        step: "02",
-        title: "Site Vastu",
-        description:
-          "Adapting traditional orientation for the North American geography.",
-      },
-      {
-        step: "03",
-        title: "Component Carving",
-        description:
-          "Master carvers in Tamil Nadu preparing thousands of carved elements.",
-        isHighlight: true,
       },
     ],
     client: {

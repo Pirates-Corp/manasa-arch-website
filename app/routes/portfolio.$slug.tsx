@@ -10,7 +10,6 @@ import Footer from "../components/Footer/Footer";
 import DetailHero from "../components/Portfolio/DetailHero/DetailHero";
 import ProjectOverview from "../components/Portfolio/ProjectOverview/ProjectOverview";
 import EditorialGallery from "../components/Portfolio/EditorialGallery/EditorialGallery";
-import ConstructionJourney from "../components/Portfolio/ConstructionJourney/ConstructionJourney";
 import RelatedProjects from "../components/Portfolio/RelatedProjects/RelatedProjects";
 import CTASection from "../components/Portfolio/CTASection/CTASection";
 import { getProjectBySlug } from "../data/portfolio";
@@ -45,7 +44,7 @@ export const meta: MetaFunction<typeof loader> = ({ data }) => {
     { title: `${project.title} | Maanasa Temple Architecture` },
     {
       name: "description",
-      content: `${project.summary} Learn about the construction journey, Agama compliance, and Dravidian architecture of ${project.title}.`,
+      content: `${project.summary} Learn about the Agama compliance and Dravidian architecture of ${project.title}.`,
     },
     {
       name: "keywords",
@@ -64,7 +63,6 @@ export default function PortfolioDetail() {
         <DetailHero project={project} />
         <ProjectOverview project={project} />
         <EditorialGallery project={project} />
-        <ConstructionJourney project={project} />
         <RelatedProjects project={project} />
         <CTASection />
       </main>
