@@ -36,7 +36,7 @@ export default function DetailHero({ project }: DetailHeroProps) {
               <span className={styles.badgeStatus}>
                 {project.status === "IN_PROGRESS" ? "IN PROGRESS" : "COMPLETED"}
               </span>
-              <span className={styles.badgeOutline}>SACRED</span>
+              {/* <span className={styles.badgeOutline}>SACRED</span> */}
               <span className={styles.badgeOutline}>{project.location}</span>
             </div>
             <h1 className={styles.heroTitle}>{project.title}</h1>

@@ -184,6 +184,7 @@
 .milestoneTitle {
   display: block;
   margin-top: 16px;
+  margin-bottom: 34px;
   color: var(--color-primary);
   font-size: 0.96rem;
   font-weight: 900;
@@ -191,15 +192,6 @@
   letter-spacing: 0.015em;
   text-transform: uppercase;
   transition: color 330ms ease, transform 330ms cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.titleRule {
-  display: block;
-  width: 36px;
-  height: 2px;
-  margin: 15px 0 17px;
-  background: var(--color-gold);
-  transition: width 330ms ease, background 330ms ease;
 }
 
 .milestoneDescription {
@@ -275,10 +267,6 @@
 .milestoneActive .milestoneTitle {
   color: var(--color-gold);
   transform: translateY(-1px);
-}
-
-.milestoneActive .titleRule {
-  width: 48px;
 }
 
 .milestone:focus-visible {
@@ -579,7 +567,6 @@
   .iconShell,
   .stepNumber,
   .milestoneTitle,
-  .titleRule,
   .milestoneDescription,
   .connectorProgress,
   .reveal .eyebrow,

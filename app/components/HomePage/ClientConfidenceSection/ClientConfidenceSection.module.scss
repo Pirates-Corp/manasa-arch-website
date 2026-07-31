@@ -102,9 +102,49 @@
   cite {
     display: block;
     margin-top: 18px;
-    color: var(--color-gold-soft);
+    color: var(--color-gold);
     font-style: normal;
     font-weight: 900;
+  }
+}
+
+.animatedWord {
+  display: inline-block;
+  position: relative;
+  background: linear-gradient(
+    90deg,
+    #b57a16 0%,
+    #e6bd62 25%,
+    #fff3c4 50%,
+    #e6bd62 75%,
+    #b57a16 100%
+  );
+
+  background-size: 220% auto;
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  -webkit-text-fill-color: transparent;
+
+  animation: luxuryShimmer 3s ease-in-out infinite;
+}
+
+@keyframes luxuryShimmer {
+  0% {
+    background-position: 0% center;
+  }
+
+  20% {
+    background-position: 100% center;
+  }
+
+  80% {
+    background-position: 100% center;
+  }
+
+  100% {
+    background-position: 0% center;
   }
 }
 
@@ -116,7 +156,6 @@
   .split {
     grid-template-columns: 1fr;
   }
-
 }
 
 @media (max-width: 620px) {
