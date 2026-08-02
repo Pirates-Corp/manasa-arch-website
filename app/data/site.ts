@@ -1,10 +1,8 @@
 export const imageSources = {
-  hero: "https://commons.wikimedia.org/wiki/Special:Redirect/file/Gopuram_of_the_Meenakshi_Temple_at_Madurai.jpg?width=1800",
-  sculpture: "/assets/images/subStatue.webp",
-  gopuram:
-    "https://commons.wikimedia.org/wiki/Special:Redirect/file/ParthasarathyTempleGopuram.JPG?width=1400",
-  process:
-    "https://commons.wikimedia.org/wiki/Special:Redirect/file/Gopuram_for_Kalabhaireshwar_temple_from_Hemakuta_hill_(01).jpg?width=1600",
+  hero: "/assets/homepage/Project-showcase/ProjectShowcaseDravidian.png",
+  sculpture: "/assets/homepage/trust-authority/trustAuthorityStatue.webp",
+  gopuram: "/assets/homepage/Project-showcase/ProjectShowcaseRenovation.png",
+  process: "/assets/homepage/Project-showcase/ProjectShowcaseInt.png",
 };
 
 export const serviceSummaries = [
@@ -95,5 +93,53 @@ export const methodologies = [
   {
     title: "Global adaptability",
     text: "Projects can adapt to international building and logistics requirements.",
+  },
+];
+
+export const lineageArchives = [
+  {
+    id: "awards",
+    src: "/assets/about/lineage/lineage01.jpeg",
+    alt: "Restored archival photo showing official awards and recognitions received by Sthapathis",
+    title: "Honors & Commendations",
+    subtitle: "Awards",
+    description:
+      "Official recognitions and state honors bestowed upon our master Sthapathis over the decades.",
+  },
+  {
+    id: "heritage",
+    src: "/assets/about/lineage/lineage02.jpeg",
+    alt: "Archival blueprints and sacred drawings detailing ancient temple architecture designs",
+    title: "Sacred Architectural Heritage",
+    subtitle: "Heritage",
+    description:
+      "Preserved design guidelines, manual sketches, and traditional temple blueprints.",
+  },
+  {
+    id: "recognition",
+    src: "/assets/about/lineage/lineage03.jpeg",
+    alt: "Government certificates and official HR&CE appointments for temple projects",
+    title: "HR&CE State Recognitions",
+    subtitle: "Recognition",
+    description:
+      "Official government orders appointing our lineage to Grade-I temple design and restoration.",
+  },
+  {
+    id: "legacy",
+    src: "/assets/about/lineage/lineage04.jpeg",
+    alt: "Vintage photograph showing the generational transition of temple craftsmanship knowledge",
+    title: "The Sthapathi Clan Legacy",
+    subtitle: "Family Legacy",
+    description:
+      "Generational transmission of sculpture, Agama compliance, and temple architecture.",
+  },
+  {
+    id: "journey",
+    src: "/assets/about/lineage/lineage05.jpeg",
+    alt: "Landmark temple architecture projects completed by the lineage across generations",
+    title: "The Temple Journey",
+    subtitle: "Temple Architecture Journey",
+    description:
+      "A testament of built shrines, monumental gopurams, and completed Vastu mandalas.",
   },
 ];

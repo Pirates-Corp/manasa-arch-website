@@ -4,9 +4,15 @@
 
 .sectionBlue {
   color: var(--color-ink-inverse);
-  background: linear-gradient(rgba(1, 33, 105, 0.94), rgba(1, 33, 105, 0.94)),
-    url("https://commons.wikimedia.org/wiki/Special:Redirect/file/ParthasarathyTempleGopuram.JPG?width=1600")
-      center / cover;
+
+  background: linear-gradient(
+      135deg,
+      rgba(1, 22, 70, 0.92) 0%,
+      rgba(1, 33, 105, 0.84) 13%,
+      rgba(1, 33, 105, 0.66) 79%
+    ),
+    url("/assets/services/temple-cost/templeCost.JPG") center 82% / cover
+      no-repeat;
 
   .eyebrow {
     color: var(--color-gold-soft);
@@ -88,12 +94,10 @@
   .split {
     grid-template-columns: 1fr;
   }
-
 }
 
 @media (max-width: 620px) {
   .container {
     width: min(100% - 28px, 1180px);
   }
-
 }
