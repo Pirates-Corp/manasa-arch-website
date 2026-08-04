@@ -108,6 +108,13 @@
   }
 }
 
+/* -------------------------------------------------------------------------- */
+/* TEMPORARILY DISABLED                                                        */
+/* Move shimmer animation to all Hero section titles.             */
+/* Reuse this animation during Hero implementation.                            */
+/* -------------------------------------------------------------------------- */
+
+/* 
 .animatedWord {
   display: inline-block;
   position: relative;
@@ -147,6 +154,7 @@
     background-position: 0% center;
   }
 }
+  */
 
 @media (max-width: 860px) {
   .section {

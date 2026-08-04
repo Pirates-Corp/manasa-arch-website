@@ -1,11 +1,11 @@
 export const HERO_IMAGE = {
-  src: "/assets/images/hero-cover.webp",
+  src: "/assets/hero/home/hero-cover.png",
   alt: "Maanasa Temple Arch — Traditional South Indian Dravidian temple with ornate Gopuram rising against the sky",
   width: 1920,
   height: 1080,
 
   /* Visual focal point for Hero background */
-  focalPoint: "center 10%",
+  focalPoint: "center 20%",
 } as const;
 
 export const HERO_LOGO = {

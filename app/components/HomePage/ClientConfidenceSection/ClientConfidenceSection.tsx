@@ -34,20 +34,14 @@ export default function ClientConfidenceSection() {
               Every temple is treated as a sacred system, not a short-term
               build.
             </p>
-            <cite>
-              Maanasa Temple Arch{" "}
-              <span className={styles.animatedWord}>Approach</span>
-            </cite>
+            <cite>Maanasa Temple Arch Approach</cite>
           </blockquote>
           <blockquote className={styles.quote}>
             <p>
               Lineage, knowledge, and precision guide the project from concept
               to consecration readiness.
             </p>
-            <cite>
-              Sthapathi-Led{" "}
-              <span className={styles.animatedWord}>Execution</span>
-            </cite>
+            <cite>Sthapathi-Led Execution</cite>
           </blockquote>
         </div>
       </div>

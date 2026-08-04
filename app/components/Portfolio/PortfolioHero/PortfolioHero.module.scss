@@ -2,42 +2,62 @@
   position: relative;
   display: grid;
   align-items: center;
-  padding: 90px 0 80px;
+
+  min-height: 665px;
+
+  padding: 110px 0 120px;
+
   overflow: hidden;
-  color: var(--color-ink-inverse);
   isolation: isolate;
+
+  color: var(--color-ink-inverse);
 }
 
 .heroSection::before {
   content: "";
+
   position: absolute;
   inset: 0;
+
   z-index: -2;
+
   background-color: var(--color-primary);
-  background-image: var(--hero-bg);
+
+  background-image: var(
+    --page-hero-image,
+    url("/assets/hero/portfolio/hero-cover.png")
+  );
+
   background-repeat: no-repeat;
+
   background-size: cover;
-  background-position: center 14%;
-  animation: heroZoom 25s ease-in-out infinite alternate;
+
+  background-position: 62% 36%;
+
+  transform: scale(1.04);
+
+  animation: heroZoom 26s ease-in-out infinite alternate;
 }
 
 .heroSection::after {
   content: "";
+
   position: absolute;
   inset: 0;
+
   z-index: -1;
+
   background: radial-gradient(
-      circle at 78% 42%,
-      rgba(245, 223, 175, 0.1),
-      transparent 34%
+      circle at 82% 32%,
+      rgba(245, 223, 175, 0.14),
+      transparent 32%
     ),
     linear-gradient(
       90deg,
-      rgba(0, 15, 54, 0.95) 0%,
-      rgba(1, 27, 82, 0.79) 48%,
-      rgba(1, 33, 105, 0.66) 100%
-    ),
-    linear-gradient(180deg, rgba(0, 10, 38, 0.12), transparent 52%);
+      rgba(0, 18, 62, 0.88) 0%,
+      rgba(1, 30, 88, 0.6) 56%,
+      rgba(1, 33, 105, 0.24) 79%
+    );
 }
 
 @keyframes heroZoom {
@@ -145,7 +165,7 @@
 .bottomFade {
   position: absolute;
   inset: auto 0 0;
-  height: 180px;
+  height: 120px;
   pointer-events: none;
   z-index: 2;
 
@@ -178,7 +198,8 @@
   }
 
   .heroSection::before {
-    background-position: center center;
+    background-position: 58% center;
+    background-size: cover;
   }
 
   .inner {
@@ -205,7 +226,9 @@
   }
 
   .heroSection {
-    padding: 56px 0 48px;
+    min-height: 420px;
+
+    padding: 72px 0 64px;
   }
 
   .title {

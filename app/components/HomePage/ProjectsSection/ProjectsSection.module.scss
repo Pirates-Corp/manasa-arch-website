@@ -38,7 +38,8 @@
   font-size: 0.94rem;
   font-weight: 800;
   text-decoration: none;
-  transition: transform 180ms ease, background 180ms ease, color 180ms ease, border-color 180ms ease;
+  transition: transform 180ms ease, background 180ms ease, color 180ms ease,
+    border-color 180ms ease;
   cursor: pointer;
   white-space: nowrap;
   margin-bottom: 4px;
@@ -110,7 +111,7 @@
   position: relative;
   padding: 20px;
   color: var(--color-ink-inverse);
-  background: var(--image) center / cover;
+  background: var(--image) 42% 24% / cover no-repeat;
   border-radius: 8px;
   isolation: isolate;
 
@@ -119,10 +120,12 @@
     position: absolute;
     inset: 0;
     z-index: -1;
+
     background: linear-gradient(
       180deg,
-      rgba(0, 0, 0, 0.04),
-      rgba(1, 22, 70, 0.84)
+      rgba(0, 0, 0, 0.02) 0%,
+      rgba(1, 22, 70, 0.18) 34%,
+      rgba(1, 22, 70, 0.88) 100%
     );
   }
 
@@ -154,7 +157,6 @@
   .section {
     padding: 72px 0;
   }
-
 
   .header {
     flex-direction: column;
