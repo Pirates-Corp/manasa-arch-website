@@ -18,12 +18,13 @@ export default function ProjectsSection() {
               Temple projects across India and international communities
             </h2>
             <p className={styles.sectionCopy}>
-              Our portfolio spans new temple construction, renovation, sculptural
-              work, granite craftsmanship, and international consultation. Each
-              project is approached as a long-term cultural and spiritual structure.
+              Our portfolio spans new temple construction, renovation,
+              sculptural work, granite craftsmanship, and international
+              consultation. Each project is approached as a long-term cultural
+              and spiritual structure.
             </p>
           </div>
-          <Link to="/projects" className={styles.btn}>
+          <Link to="/portfolio" className={styles.btn}>
             View Projects
             <ArrowUpRight size={17} aria-hidden="true" />
           </Link>

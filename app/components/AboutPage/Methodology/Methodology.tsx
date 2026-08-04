@@ -266,11 +266,6 @@ const methodologyItems = [
     title: "Spiritual Correctness",
     description:
       "Design choices are strictly validated through traditional Agama Shastra guidelines, aligning spatial geometry to coordinate divine vibration and flow.",
-    details: [
-      "Ayadi Shadvarga Calculations",
-      "Brahmasthana Layout Integrity",
-      "Vastu Purusha Mandala Axis",
-    ],
     icon: Compass,
   },
   {
@@ -279,11 +274,6 @@ const methodologyItems = [
     title: "Structural Durability",
     description:
       "Traditional load-bearing stone masonry is combined with advanced modern structural engineering, seismic safety calculations, and wind models.",
-    details: [
-      "Granite Shear-Strength Models",
-      "Seismic Safety Calculations",
-      "Centuries-Long Material Modeling",
-    ],
     icon: Ruler,
   },
   {
@@ -292,11 +282,6 @@ const methodologyItems = [
     title: "Cultural Authenticity",
     description:
       "Craftsmanship remains deeply rooted in Tamil Nadu's legacy. Sculptures and carvings are chiselled manually by hereditary Shilpis to preserve original forms.",
-    details: [
-      "Hereditary Masonry Guilds",
-      "Authentic Dravidian Aesthetics",
-      "Traditional Manual Chisel Work",
-    ],
     icon: Hammer,
   },
   {
@@ -305,11 +290,6 @@ const methodologyItems = [
     title: "Global Adaptability",
     description:
       "Temple components are engineered for global transit and assembly, complying with international building regulations, mechanical layouts, and shipping codes.",
-    details: [
-      "Vessel Container Logistics",
-      "International Code Adaptations",
-      "Remote Site Assembly Blueprint",
-    ],
     icon: Globe2,
   },
 ];
@@ -372,16 +352,6 @@ export default function Methodology() {
                       <span className={styles.cardTag}>{item.tag}</span>
                       <h3 className={styles.cardTitle}>{item.title}</h3>
                       <p className={styles.cardDesc}>{item.description}</p>
-
-                      {/* Sub-details pills checklist */}
-                      <ul className={styles.detailsList}>
-                        {item.details.map((detail) => (
-                          <li key={detail} className={styles.detailPill}>
-                            <span className={styles.bullet}></span>
-                            <span>{detail}</span>
-                          </li>
-                        ))}
-                      </ul>
                     </div>
                   </div>
                 </article>

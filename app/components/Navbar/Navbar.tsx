@@ -52,10 +52,15 @@ export default function Navbar() {
               </NavLink>
             </li>
             <li>
+              <NavLink to="/portfolio" onClick={closeMenu}>
+                Portfolio
+              </NavLink>
+            </li>
+            {/* <li>
               <Link to="/#projects" onClick={closeMenu}>
                 Projects
               </Link>
-            </li>
+            </li> */}
             <li>
               <NavLink to="/contact" onClick={closeMenu}>
                 Contact

@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "@remix-run/react";
-import { ArrowUpRight, Phone, Mail, MapPin } from "lucide-react";
+import { Phone, Mail, MapPin } from "lucide-react";
+import PremiumCtaButton from "../PremiumCtaButton/PremiumCtaButton";
 import {
   FOOTER_BRAND,
   FOOTER_NAVIGATION,
@@ -8,8 +9,7 @@ import {
   FOOTER_CONTACT,
   FOOTER_BOTTOM,
 } from "./footer.data";
-import styles from "./Footer.module.scss"; // Wait! Let's verify the stylesheet import: it was import styles from "./Footer.module.scss"; in our previous version. Let's keep importing "./Footer.module.scss".
-
+import styles from "./Footer.module.scss";
 export default function Footer() {
   return (
     <footer className={styles.footer} aria-label="Site footer">
@@ -45,18 +45,13 @@ export default function Footer() {
 
             <p className={styles.description}>{FOOTER_BRAND.description}</p>
 
-            <Link
-              className={styles.ctaButton}
+            <PremiumCtaButton
+              className={styles.ctaButtonOffset}
               to={FOOTER_BRAND.cta.href}
-              aria-label={FOOTER_BRAND.cta.label}
+              ariaLabel={FOOTER_BRAND.cta.label}
             >
               {FOOTER_BRAND.cta.label}
-              <ArrowUpRight
-                className={styles.ctaIcon}
-                size={17}
-                aria-hidden="true"
-              />
-            </Link>
+            </PremiumCtaButton>
           </div>
 
           {/* Column 2: Navigation Links */}

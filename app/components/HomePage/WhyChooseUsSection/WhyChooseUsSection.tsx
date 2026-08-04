@@ -18,7 +18,7 @@ export default function WhyChooseUsSection() {
               BadgeCheck,
             ],
             [
-              "Agama first",
+              "Agama & Vasthu first",
               "No design decision is made without scriptural validation.",
               Compass,
             ],

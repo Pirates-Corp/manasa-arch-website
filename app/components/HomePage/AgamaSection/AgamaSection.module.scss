@@ -13,9 +13,10 @@
   gap: 8px;
   margin: 0 0 14px;
   color: var(--color-copper);
-  font-size: 0.78rem;
-  font-weight: 900;
-  letter-spacing: 0.08em;
+  font-size: var(--type-eyebrow-size);
+  font-weight: var(--type-eyebrow-weight);
+  line-height: var(--type-eyebrow-line-height);
+  letter-spacing: var(--type-eyebrow-tracking);
   text-transform: uppercase;
 
   &::before {
@@ -33,13 +34,16 @@
   align-items: center;
   padding: 34px;
   color: var(--color-ink-inverse);
+
   background: linear-gradient(
       135deg,
-      rgba(1, 33, 105, 0.96),
-      rgba(1, 22, 70, 0.9)
+      rgba(1, 22, 70, 0.9) 0%,
+      rgba(1, 33, 105, 0.76) 33%,
+      rgba(1, 33, 105, 0.58) 69%
     ),
-    url("https://commons.wikimedia.org/wiki/Special:Redirect/file/Gopuram_for_Kalabhaireshwar_temple_from_Hemakuta_hill_(01).jpg?width=1600")
-      center / cover;
+    url("/assets/homepage/Agama-compliant-arch/AgamaCompliantArch.png") center
+      center / cover no-repeat;
+
   border-radius: 8px;
   box-shadow: var(--shadow-soft);
 
@@ -52,7 +56,7 @@
 
   p {
     margin: 0;
-    color: rgba(255, 255, 255, 0.84);
+    color: rgba(255, 255, 255, 0.86);
   }
 
   .eyebrow {
@@ -91,8 +95,9 @@
     margin: 0;
     color: var(--color-primary);
     font-family: var(--font-display);
-    font-size: 1.32rem;
-    line-height: 1.2;
+    font-size: var(--type-card-title-size);
+    font-weight: var(--type-card-title-weight);
+    line-height: var(--type-card-title-line-height);
   }
 
   p {
