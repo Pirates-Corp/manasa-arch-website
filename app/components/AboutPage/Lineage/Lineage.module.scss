@@ -276,44 +276,61 @@
   margin: 0;
   position: relative;
   overflow: hidden;
-  border-radius: 12px;
+  border-radius: 8px;
   border: 1px solid var(--color-line);
   box-shadow: 0 4px 20px rgba(24, 35, 63, 0.04);
-  background-color: var(--color-stone);
+  background-color: var(--color-surface-strong);
+  display: flex;
+  flex-direction: column;
   opacity: 0;
   transform: translateY(30px);
   transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
     box-shadow 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.6s cubic-bezier(0.16, 1, 0.3, 1),
     opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1);
   transition-delay: calc(var(--index) * 120ms);
   cursor: pointer;
   outline: none;
 
-  &:focus-within {
-    box-shadow: 0 0 0 3px var(--color-gold), 0 12px 30px rgba(1, 33, 105, 0.15);
-
-    .galleryImage {
-      transform: scale(1.05);
-    }
+  &:focus-visible {
+    outline: 2px solid var(--color-gold);
+    outline-offset: 4px;
   }
 
   &:hover {
     transform: translateY(-6px);
-    box-shadow: 0 16px 40px rgba(1, 33, 105, 0.12), var(--shadow-soft);
+    border-color: rgba(200, 145, 44, 0.4);
+    box-shadow: 0 20px 40px rgba(1, 33, 105, 0.1), var(--shadow-soft);
 
     .galleryImage {
-      transform: scale(1.05);
+      transform: scale(1.025);
+    }
+
+    .interactiveIndicator {
+      opacity: 1;
+    }
+
+    .exploreLink::after {
+      width: 100%;
     }
   }
 }
 
-.imageWrapper {
+.imageFrame {
   position: relative;
   width: 100%;
-  height: 100%;
+  padding: 24px;
+  background-color: var(--color-sand);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   overflow: hidden;
   isolation: isolate;
-  background: var(--color-stone);
+  border-bottom: 1px solid var(--color-line);
+
+  @media (max-width: 768px) {
+    padding: 16px;
+  }
 }
 
 .galleryImage {
@@ -321,114 +338,158 @@
   height: 100%;
   display: block;
   margin: 0;
-
-  object-fit: cover;
-  object-position: center;
-
+  object-fit: contain;
+  filter: drop-shadow(0 6px 15px rgba(24, 35, 63, 0.15));
   transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-
   backface-visibility: hidden;
   transform-origin: center;
   will-change: transform;
 }
 
-/* Semi-Transparent Overlay and Text Cap */
-.cardOverlay {
+.interactiveIndicator {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    to top,
-    rgba(1, 15, 46, 0.92) 0%,
-    rgba(1, 15, 46, 0.45) 50%,
-    rgba(1, 15, 46, 0.05) 100%
-  );
-  z-index: 1;
+  background: rgba(1, 15, 46, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 2;
   pointer-events: none;
 }
 
-.cardContent {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  padding: 28px;
-  z-index: 2;
+.indicatorText {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--color-primary);
   color: var(--color-surface);
-  pointer-events: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  transform: translateY(10px);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+
+  .galleryCard:hover & {
+    transform: translateY(0);
+  }
+}
+
+.searchIcon {
+  color: var(--color-gold);
+}
+
+.cardContent {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
 }
 
 .cardTag {
   display: inline-block;
   font-size: 0.68rem;
-  font-weight: 900;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.15em;
-  color: var(--color-gold-soft);
+  letter-spacing: 0.12em;
+  color: var(--color-gold);
   margin-bottom: 8px;
-  border-bottom: 1px solid rgba(245, 223, 175, 0.3);
-  padding-bottom: 2px;
+  align-self: flex-start;
 }
 
 .cardItemTitle {
-  margin: 0 0 8px;
+  margin: 0 0 10px;
   font-family: var(--font-display);
   font-size: 1.35rem;
   font-weight: 400;
-  letter-spacing: 0.02em;
   line-height: 1.25;
+  color: var(--color-primary);
 }
 
 .cardDescription {
-  margin: 0;
-  font-size: 0.88rem;
-  line-height: 1.5;
-  color: rgba(255, 255, 255, 0.78);
-  max-width: 90%;
+  margin: 0 0 20px;
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: var(--color-ink-soft);
+  flex-grow: 1;
+}
+
+.cardFooter {
+  display: flex;
+  flex-direction: column;
+  margin-top: auto;
+}
+
+.exploreLink {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--color-gold);
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  position: relative;
+  align-self: flex-start;
+  padding-bottom: 2px;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: var(--color-gold);
+    transition: width 0.3s ease;
+  }
 }
 
 /* Grid Cell Placement on Desktop */
 .card_awards {
   grid-column: span 7;
-  aspect-ratio: 7 / 5;
 
-  .galleryImage {
-    object-position: center 28%;
+  .imageFrame {
+    aspect-ratio: 16 / 10;
   }
 }
 
 .card_heritage {
   grid-column: span 5;
-  aspect-ratio: 1 / 1;
 
-  .galleryImage {
-    object-position: center top;
+  .imageFrame {
+    aspect-ratio: 4 / 3;
   }
 }
 
 .card_recognition {
-  grid-column: span 4;
-  aspect-ratio: 9 / 10;
+  grid-column: span 5;
 
-  .galleryImage {
-    object-position: center top;
+  .imageFrame {
+    aspect-ratio: 4 / 3;
   }
 }
 
 .card_legacy {
-  grid-column: span 8;
-  aspect-ratio: 9 / 5;
+  grid-column: span 7;
 
-  .galleryImage {
-    object-position: center 18%;
+  .imageFrame {
+    aspect-ratio: 16 / 10;
   }
 }
 
 .card_journey {
   grid-column: span 12;
-  aspect-ratio: 12 / 5;
 
-  .galleryImage {
-    object-position: center 12%;
+  .imageFrame {
+    aspect-ratio: 21 / 9;
   }
 
   .cardItemTitle {
@@ -436,7 +497,268 @@
   }
 
   .cardDescription {
-    max-width: 70%;
+    max-width: 80%;
+  }
+}
+
+/* Fullscreen Modal Image Viewer */
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(7, 12, 27, 0.98);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  cursor: zoom-out;
+  transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity;
+}
+
+.modalOverlayOpen {
+  opacity: 1;
+}
+
+.modalOverlayClosing {
+  opacity: 0;
+}
+
+.modalCloseButton {
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: rgba(255, 255, 255, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 1010;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+
+  &:hover {
+    background: var(--color-gold);
+    color: var(--color-surface-strong);
+    border-color: var(--color-gold);
+    transform: rotate(90deg);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-gold);
+    outline-offset: 4px;
+  }
+}
+
+.modalNavButton {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 1010;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+
+  &:hover {
+    background: var(--color-gold);
+    color: var(--color-surface-strong);
+    border-color: var(--color-gold);
+    width: 62px;
+    height: 62px;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-gold);
+    outline-offset: 4px;
+  }
+
+  @media (max-width: 900px) {
+    display: none;
+  }
+}
+
+.modalNavPrev {
+  left: 32px;
+}
+
+.modalNavNext {
+  right: 32px;
+}
+
+.modalCard {
+  width: min(1180px, 100%);
+  height: min(720px, 80vh);
+  background-color: #060a18;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  overflow: hidden;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.6);
+  cursor: default;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
+}
+
+.modalCardOpen {
+  transform: scale(1) translateY(0);
+  opacity: 1;
+}
+
+.modalCardClosing {
+  transform: scale(0.95) translateY(15px);
+  opacity: 0;
+}
+
+.modalImageWrapper {
+  background-color: #030610;
+  padding: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+
+  @media (max-width: 768px) {
+    padding: 24px;
+  }
+}
+
+.modalImage {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 12px 36px rgba(0, 0, 0, 0.7));
+  user-select: none;
+}
+
+.modalCaptionPanel {
+  background-color: #080c1a;
+  padding: 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  position: relative;
+
+  @media (max-width: 768px) {
+    padding: 32px;
+  }
+}
+
+.modalCaptionScrollContainer {
+  overflow-y: auto;
+  flex-grow: 1;
+  padding-right: 8px;
+  margin-bottom: 24px;
+
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+  &::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.03);
+  }
+  &::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 2px;
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    background: var(--color-gold);
+  }
+}
+
+.modalTag {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--color-gold-soft);
+  margin-bottom: 12px;
+}
+
+.modalTitle {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  font-weight: 400;
+  line-height: 1.25;
+  color: var(--color-surface-strong);
+}
+
+.modalTitleDivider {
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    rgba(245, 223, 175, 0.25) 0%,
+    transparent 100%
+  );
+  margin: 20px 0;
+}
+
+.modalDescription {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 0.98rem;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.modalCaptionFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 24px;
+  margin-top: auto;
+}
+
+.modalCounter {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.modalMiniNavButtons {
+  display: flex;
+  gap: 8px;
+}
+
+.modalMiniNavBtn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 700;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: var(--color-gold);
+    color: var(--color-surface-strong);
+    border-color: var(--color-gold);
   }
 }
 
@@ -472,20 +794,40 @@
   .card_recognition,
   .card_legacy {
     grid-column: span 1;
-    aspect-ratio: 4 / 3;
 
-    .galleryImage {
-      object-position: center;
+    .imageFrame {
+      aspect-ratio: 4 / 3;
     }
   }
 
   .card_journey {
     grid-column: span 2;
-    aspect-ratio: 16 / 9;
 
-    .cardDescription {
-      max-width: 90%;
+    .imageFrame {
+      aspect-ratio: 16 / 9;
     }
+  }
+}
+
+@media (max-width: 900px) {
+  .modalOverlay {
+    padding: 24px;
+  }
+
+  .modalCard {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1.2fr 1fr;
+    height: 85vh;
+    max-height: none;
+  }
+
+  .modalImageWrapper {
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .modalCaptionPanel {
+    padding: 28px;
   }
 }
 
@@ -586,23 +928,47 @@
   .card_legacy,
   .card_journey {
     grid-column: span 1;
-    aspect-ratio: 4 / 3;
+
+    .imageFrame {
+      aspect-ratio: 4 / 3;
+    }
 
     .cardContent {
       padding: 20px;
     }
 
     .cardItemTitle {
-      font-size: 1.2rem;
+      font-size: 1.25rem;
     }
 
     .cardDescription {
-      font-size: 0.82rem;
-      max-width: 100%;
+      font-size: 0.88rem;
     }
-    .galleryImage {
-      object-position: center;
-    }
+  }
+
+  .modalOverlay {
+    padding: 12px;
+  }
+
+  .modalCard {
+    height: 90vh;
+    grid-template-rows: 1fr 1.1fr;
+  }
+
+  .modalImageWrapper {
+    padding: 16px;
+  }
+
+  .modalCaptionPanel {
+    padding: 20px;
+  }
+
+  .modalTitle {
+    font-size: 1.4rem;
+  }
+
+  .modalDescription {
+    font-size: 0.9rem;
   }
 }
 
@@ -620,7 +986,9 @@
   .card_recognition,
   .card_legacy,
   .card_journey {
-    aspect-ratio: 1.2;
+    .imageFrame {
+      aspect-ratio: 1.2;
+    }
   }
 }
 
@@ -630,7 +998,11 @@
   .galleryCard,
   .galleryImage,
   .itemContent,
-  .genNumber {
+  .genNumber,
+  .modalOverlay,
+  .modalCard,
+  .interactiveIndicator,
+  .indicatorText {
     transition: none !important;
     transform: none !important;
     opacity: 1 !important;

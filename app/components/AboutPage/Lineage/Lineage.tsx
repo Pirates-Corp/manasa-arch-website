@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { lineageTimeline, lineageArchives } from "../../../data/site";
 import { useScrollReveal } from "../../../utils/useScrollReveal";
 import styles from "./Lineage.module.scss";
@@ -8,6 +8,74 @@ export default function Lineage() {
     threshold: 0.05,
   });
   const revealGalleryRef = useScrollReveal<HTMLDivElement>({ threshold: 0.05 });
+
+  const [activeArchiveIndex, setActiveArchiveIndex] = useState<number | null>(
+    null,
+  );
+  const [isClosing, setIsClosing] = useState(false);
+
+  const openViewer = useCallback((index: number) => {
+    setIsClosing(false);
+    setActiveArchiveIndex(index);
+  }, []);
+
+  const closeViewer = useCallback(() => {
+    setIsClosing(true);
+    setTimeout(() => {
+      setActiveArchiveIndex(null);
+      setIsClosing(false);
+    }, 300); // matches CSS fade-out duration
+  }, []);
+
+  const showNext = useCallback(
+    (e?: React.MouseEvent | React.KeyboardEvent) => {
+      if (e) e.stopPropagation();
+      if (activeArchiveIndex !== null) {
+        setActiveArchiveIndex(
+          (activeArchiveIndex + 1) % lineageArchives.length,
+        );
+      }
+    },
+    [activeArchiveIndex],
+  );
+
+  const showPrev = useCallback(
+    (e?: React.MouseEvent | React.KeyboardEvent) => {
+      if (e) e.stopPropagation();
+      if (activeArchiveIndex !== null) {
+        setActiveArchiveIndex(
+          (activeArchiveIndex - 1 + lineageArchives.length) %
+            lineageArchives.length,
+        );
+      }
+    },
+    [activeArchiveIndex],
+  );
+
+  useEffect(() => {
+    if (activeArchiveIndex === null) return;
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        closeViewer();
+      } else if (e.key === "ArrowRight") {
+        showNext();
+      } else if (e.key === "ArrowLeft") {
+        showPrev();
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+
+    // Lock body scroll
+    const originalStyle = window.getComputedStyle(document.body).overflow;
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = originalStyle;
+    };
+  }, [activeArchiveIndex, closeViewer, showNext, showPrev]);
 
   return (
     <section
@@ -92,31 +160,45 @@ export default function Lineage() {
                   styles[`card_${archive.id}`]
                 }`}
                 style={{ "--index": index } as React.CSSProperties}
-                aria-label={`Heritage archival item: ${archive.title}`}
+                onClick={() => openViewer(index)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault();
+                    openViewer(index);
+                  }
+                }}
+                aria-label={`Heritage archival item: ${archive.title}. Click to view fullscreen.`}
               >
-                <div className={styles.imageWrapper}>
+                <div className={styles.imageFrame}>
                   <img
                     src={archive.src}
                     alt={archive.alt}
                     loading="lazy"
                     decoding="async"
                     className={styles.galleryImage}
-                    width={
-                      archive.id === "journey"
-                        ? 1180
-                        : archive.id === "awards" || archive.id === "legacy"
-                        ? 700
-                        : 500
-                    }
-                    height={
-                      archive.id === "journey"
-                        ? 500
-                        : archive.id === "awards"
-                        ? 500
-                        : 500
-                    }
                   />
-                  <div className={styles.cardOverlay}></div>
+                  <div
+                    className={styles.interactiveIndicator}
+                    aria-hidden="true"
+                  >
+                    <span className={styles.indicatorText}>
+                      <svg
+                        viewBox="0 0 24 24"
+                        width="16"
+                        height="16"
+                        stroke="currentColor"
+                        strokeWidth="2.5"
+                        fill="none"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className={styles.searchIcon}
+                      >
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                      </svg>
+                      VIEW ARCHIVE
+                    </span>
+                  </div>
                 </div>
                 <figcaption className={styles.cardContent}>
                   <span className={styles.cardTag}>{archive.subtitle}</span>
@@ -124,12 +206,147 @@ export default function Lineage() {
                   <p className={styles.cardDescription}>
                     {archive.description}
                   </p>
+                  <div className={styles.cardFooter}>
+                    <span className={styles.exploreLink}>
+                      View Document <span aria-hidden="true">→</span>
+                    </span>
+                  </div>
                 </figcaption>
               </figure>
             ))}
           </div>
         </div>
       </div>
+
+      {/* Premium Fullscreen Image Viewer Modal */}
+      {activeArchiveIndex !== null && (
+        <div
+          className={`${styles.modalOverlay} ${
+            isClosing ? styles.modalOverlayClosing : styles.modalOverlayOpen
+          }`}
+          onClick={closeViewer}
+          role="dialog"
+          aria-modal="true"
+          aria-label={`Archival Viewer: ${lineageArchives[activeArchiveIndex].title}`}
+        >
+          {/* Close button outside the modal content card for clean layout */}
+          <button
+            className={styles.modalCloseButton}
+            onClick={closeViewer}
+            aria-label="Close fullscreen viewer"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              width="24"
+              height="24"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              fill="none"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+
+          {/* Previous Arrow Button */}
+          <button
+            className={`${styles.modalNavButton} ${styles.modalNavPrev}`}
+            onClick={showPrev}
+            aria-label="Previous document"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              width="28"
+              height="28"
+              stroke="currentColor"
+              strokeWidth="2"
+              fill="none"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+          </button>
+
+          {/* Next Arrow Button */}
+          <button
+            className={`${styles.modalNavButton} ${styles.modalNavNext}`}
+            onClick={showNext}
+            aria-label="Next document"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              width="28"
+              height="28"
+              stroke="currentColor"
+              strokeWidth="2"
+              fill="none"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </button>
+
+          <div
+            className={`${styles.modalCard} ${
+              isClosing ? styles.modalCardClosing : styles.modalCardOpen
+            }`}
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Left/Main Side: Image Viewer */}
+            <div className={styles.modalImageWrapper}>
+              <img
+                src={lineageArchives[activeArchiveIndex].src}
+                alt={lineageArchives[activeArchiveIndex].alt}
+                className={styles.modalImage}
+              />
+            </div>
+
+            {/* Right Side: Detailed Metadata Description Sidebar */}
+            <div className={styles.modalCaptionPanel}>
+              <div className={styles.modalCaptionScrollContainer}>
+                <span className={styles.modalTag}>
+                  {lineageArchives[activeArchiveIndex].subtitle}
+                </span>
+                <h4 className={styles.modalTitle}>
+                  {lineageArchives[activeArchiveIndex].title}
+                </h4>
+                <div className={styles.modalTitleDivider} aria-hidden="true" />
+                <p className={styles.modalDescription}>
+                  {lineageArchives[activeArchiveIndex].description}
+                </p>
+              </div>
+
+              {/* Bottom Footer inside sidebar for Nav Controls & Counter */}
+              <div className={styles.modalCaptionFooter}>
+                <span className={styles.modalCounter}>
+                  DOCUMENT {activeArchiveIndex + 1} OF {lineageArchives.length}
+                </span>
+
+                <div className={styles.modalMiniNavButtons}>
+                  <button
+                    className={styles.modalMiniNavBtn}
+                    onClick={showPrev}
+                    aria-label="Previous image"
+                  >
+                    ←
+                  </button>
+                  <button
+                    className={styles.modalMiniNavBtn}
+                    onClick={showNext}
+                    aria-label="Next image"
+                  >
+                    →
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }
