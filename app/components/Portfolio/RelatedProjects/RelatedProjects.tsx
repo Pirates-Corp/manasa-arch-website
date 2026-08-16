@@ -9,10 +9,14 @@ import styles from "./RelatedProjects.module.scss";
 
 interface RelatedProjectsProps {
   project: PortfolioProject;
+  allProjects: PortfolioProject[];
 }
 
-export default function RelatedProjects({ project }: RelatedProjectsProps) {
-  const relatedList = getRelatedProjects(project);
+export default function RelatedProjects({
+  project,
+  allProjects,
+}: RelatedProjectsProps) {
+  const relatedList = getRelatedProjects(project, allProjects);
   const revealRef = useScrollReveal<HTMLDivElement>();
 
   if (relatedList.length === 0) return null;

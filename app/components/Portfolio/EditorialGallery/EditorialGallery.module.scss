@@ -9,54 +9,92 @@
   }
 }
 
-.galleryRow {
+// ── Content-Aware 2-Column Pair Row ──────────────────────
+
+.galleryPairRow {
   display: grid;
-  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
   gap: 32px;
   align-items: end;
+  margin-bottom: 56px;
 
   @media (max-width: 860px) {
     display: flex;
     flex-direction: column;
     gap: 40px;
+    margin-bottom: 42px;
   }
 }
 
-.galleryLeftFigure {
-  margin: 0;
+// Grid Proportion Variants (Equal, Landscape+Portrait, Portrait+Landscape)
+.gridEqual {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
 }
 
-.galleryRightFigure {
-  margin: 0;
+.gridLandscapePortrait {
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
 }
 
-.aspect1610 {
-  aspect-ratio: 16 / 10;
+.gridPortraitLandscape {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr);
+}
+
+// ── Single Feature Row Variants ────────────────────────────
+
+.gallerySingleRow {
+  margin-bottom: 56px;
+
+  @media (max-width: 860px) {
+    margin-bottom: 42px;
+  }
+}
+
+// Full-width for landscape / panoramic showcase images
+.singleLandscapeRow {
+  width: 100%;
+}
+
+// Centered portrait presentation - prevents giant empty side wings
+.singlePortraitRow {
+  max-width: 680px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+
+  @media (max-width: 768px) {
+    max-width: 100%;
+  }
+
+  .galleryCaption {
+    text-align: center;
+  }
+}
+
+// ── Image Figure & Intrinsic Wrapper ──────────────────────
+
+.galleryFigure {
+  margin: 0;
+  width: 100%;
+}
+
+.imageWrapper {
   width: 100%;
   overflow: hidden;
   background-color: $color-bg-low;
+  border: 1px solid rgba($color-outline, 0.08);
+  box-shadow: 0 1px 3px rgba($color-ink-primary, 0.04);
+  transition: aspect-ratio 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
   img {
+    display: block;
     width: 100%;
     height: 100%;
     margin: 0;
     object-fit: cover;
+    image-orientation: from-image;
   }
 }
 
-.aspect34 {
-  aspect-ratio: 3 / 4;
-  width: 100%;
-  overflow: hidden;
-  background-color: $color-bg-low;
-
-  img {
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    object-fit: cover;
-  }
-}
+// ── Captions ──────────────────────────────────────────────
 
 .galleryCaption {
   font-family: $font-sans;
@@ -68,39 +106,8 @@
   text-transform: uppercase;
 }
 
-.galleryFullRow {
-  margin-top: 56px;
+// ── Scroll Reveal ─────────────────────────────────────────
 
-  @media (max-width: 860px) {
-    margin-top: 42px;
-  }
-}
-
-.fullFigure {
-  margin: 0;
-}
-
-.aspectVideo {
-  aspect-ratio: 16 / 9;
-  width: 100%;
-  overflow: hidden;
-  border: 1px solid rgba($color-outline, 0.2);
-  box-shadow: 0 1px 3px rgba($color-ink-primary, 0.08);
-  background-color: $color-bg-low;
-
-  img {
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    object-fit: cover;
-  }
-}
-
-.captionCenter {
-  text-align: center;
-}
-
-// Scroll Reveal (Detail page variant)
 .reveal {
   opacity: 0;
   transform: translateY(20px);

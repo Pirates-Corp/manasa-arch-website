@@ -25,11 +25,6 @@ export default function ProjectOverview({ project }: ProjectOverviewProps) {
             ref={revealLeftRef}
             className={`${styles.overviewLeft} ${styles.reveal}`}
           >
-            <h2>
-              A Legacy
-              <br />
-              Carved in Stone
-            </h2>
             <div className={styles.metaList}>
               {/* Project Details */}
               <div className={styles.metaGroup}>
@@ -109,7 +104,11 @@ export default function ProjectOverview({ project }: ProjectOverviewProps) {
                     {project.testimonial.name}
                   </span>
                   <span className={styles.authorTitle}>
-                    {project.testimonial.designation},{" "}
+                    {project.testimonial.designation}
+                    {project.testimonial.designation &&
+                    project.testimonial.organization
+                      ? ", "
+                      : ""}
                     {project.testimonial.organization}
                   </span>
                 </div>

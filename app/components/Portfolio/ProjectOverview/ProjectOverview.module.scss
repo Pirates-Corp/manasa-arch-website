@@ -23,28 +23,10 @@
   }
 }
 
-.overviewLeft {
-  h2 {
-    font-family: $font-display;
-    font-size: 2.7rem;
-    font-weight: 400;
-    line-height: 1.1;
-    color: $color-ink-primary;
-    margin: 0 0 18px;
-
-    @media (max-width: 860px) {
-      font-size: 2.35rem;
-    }
-
-    @media (max-width: 620px) {
-      font-size: 2rem;
-    }
-  }
-}
+// .overviewLeft {
+// }
 
 .metaList {
-  border-top: 1px solid rgba($color-outline, 0.3);
-  padding-top: 30px;
   display: flex;
   flex-direction: column;
   gap: 30px;
