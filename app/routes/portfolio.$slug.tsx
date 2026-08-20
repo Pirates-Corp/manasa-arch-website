@@ -1,6 +1,7 @@
 import React from "react";
 import {
   json,
+  redirect,
   type LoaderFunctionArgs,
   type MetaFunction,
 } from "@remix-run/node";
@@ -12,7 +13,7 @@ import ProjectOverview from "../components/Portfolio/ProjectOverview/ProjectOver
 import EditorialGallery from "../components/Portfolio/EditorialGallery/EditorialGallery";
 import RelatedProjects from "../components/Portfolio/RelatedProjects/RelatedProjects";
 import CTASection from "../components/Portfolio/CTASection/CTASection";
-import { getProjectBySlug } from "../data/portfolio";
+import { fetchPortfolioFromCMS } from "../services/cms";
 import { seoKeywords } from "../utils/seo";
 
 export async function loader({ params }: LoaderFunctionArgs) {
@@ -21,12 +22,32 @@ export async function loader({ params }: LoaderFunctionArgs) {
     throw new Response("Slug Parameter Required", { status: 400 });
   }
 
-  const project = getProjectBySlug(slug);
+  const projects = await fetchPortfolioFromCMS();
+
+  // Find project by slug
+  let project = projects.find((p) => p.slug === slug);
+  let shouldRedirect = false;
+
+  // Backward compatibility: If not found by primary slug, search by legacy numeric ID or documentId
+  if (!project) {
+    project = projects.find(
+      (p) => p.legacyId === slug || p.id === slug || p.cmsId === slug,
+    );
+    if (project) {
+      shouldRedirect = true;
+    }
+  }
+
   if (!project) {
     throw new Response("Project Not Found", { status: 404 });
   }
 
-  return json({ project });
+  // If matched a legacy route, redirect to canonical slug URL (301 Permanent Redirect)
+  if (shouldRedirect) {
+    return redirect(`/portfolio/${project.slug}`, { status: 301 });
+  }
+
+  return json({ project, allProjects: projects });
 }
 
 export const meta: MetaFunction<typeof loader> = ({ data }) => {
@@ -50,11 +71,16 @@ export const meta: MetaFunction<typeof loader> = ({ data }) => {
       name: "keywords",
       content: `${project.title}, ${project.category}, ${seoKeywords}`,
     },
+    {
+      tagName: "link",
+      rel: "canonical",
+      href: `https://maanasatemplearch.com/portfolio/${project.slug}`,
+    },
   ];
 };
 
 export default function PortfolioDetail() {
-  const { project } = useLoaderData<typeof loader>();
+  const { project, allProjects } = useLoaderData<typeof loader>();
 
   return (
     <div className="page" style={{ backgroundColor: "#fbf9f4" }}>
@@ -63,7 +89,7 @@ export default function PortfolioDetail() {
         <DetailHero project={project} />
         <ProjectOverview project={project} />
         <EditorialGallery project={project} />
-        <RelatedProjects project={project} />
+        <RelatedProjects project={project} allProjects={allProjects} />
         <CTASection />
       </main>
       <Footer />
