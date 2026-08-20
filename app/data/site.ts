@@ -122,7 +122,7 @@ export const lineageArchives = [
     title: "Tamil Nadu HR&CE Architecture Recognition",
     subtitle: "State Accreditation",
     description:
-      "Official government recognition issued by the Tamil Nadu HR&CE Department, acknowledging the professional excellence and architectural contributions of the Sthapathi lineage.",
+      "This official recognition issued by  M. Muthiah Sthapathi, president of the Tamil Nadu Hindu Religious & Charitable Endowments Department acknowledges the architectural contributions and professional excellence of the Sthapathi lineage.",
   },
   {
     id: "legacy",
