@@ -8,12 +8,13 @@ export default function ClientConfidenceSection() {
         <div>
           <p className={styles.eyebrow}>Client confidence</p>
           <h2 className={styles.sectionTitle}>
-            Built for trusts, NRIs, spiritual organizations, and private temple patrons
+            Built for trusts, NRIs, spiritual organizations, and private temple
+            patrons
           </h2>
           <p className={styles.sectionCopy}>
             The right Sthapathi helps protect spiritual integrity, long-term
-            durability, cultural authenticity, and clarity through each
-            stage of the temple development lifecycle.
+            durability, cultural authenticity, and clarity through each stage of
+            the temple development lifecycle.
           </p>
           <ul className={styles.detailList}>
             <li>
@@ -30,14 +31,15 @@ export default function ClientConfidenceSection() {
         <div className={styles.testimonialRow}>
           <blockquote className={styles.quote}>
             <p>
-              Every temple is treated as a sacred system, not a short-term build.
+              Every temple is treated as a sacred system, not a short-term
+              build.
             </p>
             <cite>Maanasa Temple Arch Approach</cite>
           </blockquote>
           <blockquote className={styles.quote}>
             <p>
-              Lineage, knowledge, and precision guide the project from
-              concept to consecration readiness.
+              Lineage, knowledge, and precision guide the project from concept
+              to consecration readiness.
             </p>
             <cite>Sthapathi-Led Execution</cite>
           </blockquote>

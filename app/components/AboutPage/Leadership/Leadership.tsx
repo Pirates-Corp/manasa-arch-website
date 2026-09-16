@@ -117,7 +117,7 @@ export default function Leadership() {
                 </span>
                 <span className={styles.signatureText}>Kannan Sthapathi</span>
               </div>
-              <div className={styles.lineageBadgeMini}>Est. Tamil Nadu</div>
+              <div className={styles.lineageBadgeMini}>SINCE ✦ 1965</div>
             </div>
           </div>
 

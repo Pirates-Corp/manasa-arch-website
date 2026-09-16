@@ -4,9 +4,15 @@
 
 .sectionBlue {
   color: var(--color-ink-inverse);
-  background: linear-gradient(rgba(1, 33, 105, 0.94), rgba(1, 33, 105, 0.94)),
-    url("https://commons.wikimedia.org/wiki/Special:Redirect/file/ParthasarathyTempleGopuram.JPG?width=1600")
-      center / cover;
+
+  background: linear-gradient(
+      135deg,
+      rgba(1, 22, 70, 0.92) 0%,
+      rgba(1, 33, 105, 0.82) 38%,
+      rgba(1, 33, 105, 0.64) 100%
+    ),
+    url("/assets/homepage/why-choose-us/whyChooseUs.png") center center / cover
+      no-repeat;
 
   .eyebrow {
     color: var(--color-gold-soft);
@@ -28,9 +34,10 @@
   gap: 8px;
   margin: 0 0 14px;
   color: var(--color-copper);
-  font-size: 0.78rem;
-  font-weight: 900;
-  letter-spacing: 0.08em;
+  font-size: var(--type-eyebrow-size);
+  font-weight: var(--type-eyebrow-weight);
+  line-height: var(--type-eyebrow-line-height);
+  letter-spacing: var(--type-eyebrow-tracking);
   text-transform: uppercase;
 
   &::before {
@@ -46,9 +53,10 @@
   margin: 0;
   color: var(--color-primary);
   font-family: var(--font-display);
-  font-size: 2.7rem;
-  line-height: 1.1;
-  letter-spacing: 0;
+  font-size: var(--type-section-title-size);
+  font-weight: var(--type-section-title-weight);
+  line-height: var(--type-section-title-line-height);
+  letter-spacing: var(--type-section-title-tracking);
 }
 
 .cardsGrid {
@@ -82,8 +90,9 @@
     margin: 0;
     color: var(--color-primary);
     font-family: var(--font-display);
-    font-size: 1.32rem;
-    line-height: 1.2;
+    font-size: var(--type-card-title-size);
+    font-weight: var(--type-card-title-weight);
+    line-height: var(--type-card-title-line-height);
   }
 
   p {
@@ -115,19 +124,11 @@
   .section {
     padding: 72px 0;
   }
-
-  .sectionTitle {
-    font-size: 2.35rem;
-  }
 }
 
 @media (max-width: 620px) {
   .container {
     width: min(100% - 28px, 1180px);
-  }
-
-  .sectionTitle {
-    font-size: 2rem;
   }
 
   .cardsGrid,

@@ -1,7 +1,7 @@
 .section {
   padding: 110px 0;
   position: relative;
-  overflow: hidden;
+  overflow: clip;
 }
 
 .sectionBlue {
@@ -82,7 +82,7 @@
   display: grid;
   grid-template-columns: 0.9fr 1.1fr;
   gap: 64px;
-  align-items: start;
+  align-items: stretch;
 }
 
 /* Left Column: CAD Schematic Visual Panel */
@@ -407,63 +407,6 @@
   margin: 0 0 20px;
 }
 
-/* Details Checklist Pills */
-.detailsList {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px 12px;
-  padding: 0;
-  margin: 0;
-  list-style: none;
-}
-
-.detailPill {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  padding: 4px 12px;
-  border-radius: 6px;
-  transition: all 0.4s ease;
-
-  span:last-child {
-    font-size: 0.76rem;
-    color: rgba(255, 255, 255, 0.58);
-    font-weight: 500;
-  }
-
-  .chapterCard:hover & {
-    border-color: rgba(255, 255, 255, 0.09);
-    background: rgba(255, 255, 255, 0.04);
-  }
-
-  .cardActive & {
-    border-color: rgba(200, 145, 44, 0.2);
-    background: rgba(200, 145, 44, 0.03);
-
-    span:last-child {
-      color: var(--color-gold-soft);
-    }
-  }
-}
-
-.bullet {
-  width: 5px;
-  height: 5px;
-  background: rgba(255, 255, 255, 0.25);
-  border-radius: 50%;
-  transition: background-color 0.4s ease;
-
-  .chapterCard:hover & {
-    background-color: var(--color-gold-soft);
-  }
-
-  .cardActive & {
-    background-color: var(--color-gold);
-  }
-}
-
 /* Animations */
 @keyframes nodeGlow {
   0% {
@@ -481,7 +424,21 @@
 }
 
 /* Responsiveness */
-@media (max-width: 1040px) {
+@media (max-width: 860px) {
+  .section {
+    padding: 80px 0;
+  }
+
+  .sectionTitle {
+    font-size: 2.45rem;
+  }
+
+  .sectionHeader {
+    margin-bottom: 48px;
+  }
+}
+
+@media (max-width: 640px) {
   .mainSplit {
     grid-template-columns: 1fr;
     gap: 56px;
@@ -495,20 +452,6 @@
   .schematicSticky {
     position: relative;
     top: 0;
-  }
-}
-
-@media (max-width: 860px) {
-  .section {
-    padding: 80px 0;
-  }
-
-  .sectionTitle {
-    font-size: 2.45rem;
-  }
-
-  .sectionHeader {
-    margin-bottom: 48px;
   }
 }
 
@@ -536,10 +479,6 @@
 
   .cardTitle {
     font-size: 1.35rem;
-  }
-
-  .detailPill {
-    padding: 3px 8px;
   }
 
   .schematicWrapper {

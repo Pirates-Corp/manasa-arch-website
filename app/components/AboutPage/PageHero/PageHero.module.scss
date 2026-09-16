@@ -1,16 +1,18 @@
 .pageHero {
   padding: 90px 0 80px;
   color: var(--color-ink-inverse);
-  background: linear-gradient(
+
+  background-image: linear-gradient(
       90deg,
-      rgba(1, 22, 70, 0.94),
-      rgba(1, 33, 105, 0.72)
+      rgba(1, 22, 70, 0.76) 0%,
+      rgba(1, 22, 70, 0.56) 52%,
+      rgba(1, 33, 105, 0.26) 86%
     ),
-    var(
-        --page-hero-image,
-        url("https://commons.wikimedia.org/wiki/Special:Redirect/file/Gopuram_of_the_Meenakshi_Temple_at_Madurai.jpg?width=1800")
-      )
-      center / cover;
+    var(--page-hero-image, url("/assets/hero/about/hero-cover.png"));
+
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 18% center;
 }
 
 .container {

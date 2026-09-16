@@ -20,9 +20,10 @@
   gap: 8px;
   margin: 0 0 14px;
   color: var(--color-copper);
-  font-size: 0.78rem;
-  font-weight: 900;
-  letter-spacing: 0.08em;
+  font-size: var(--type-eyebrow-size);
+  font-weight: var(--type-eyebrow-weight);
+  line-height: var(--type-eyebrow-line-height);
+  letter-spacing: var(--type-eyebrow-tracking);
   text-transform: uppercase;
 
   &::before {
@@ -38,16 +39,19 @@
   margin: 0;
   color: var(--color-primary);
   font-family: var(--font-display);
-  font-size: 2.7rem;
-  line-height: 1.1;
-  letter-spacing: 0;
+  font-size: var(--type-section-title-size);
+  font-weight: var(--type-section-title-weight);
+  line-height: var(--type-section-title-line-height);
+  letter-spacing: var(--type-section-title-tracking);
 }
 
 .sectionCopy {
   max-width: 760px;
   margin: 18px 0 0;
   color: var(--color-ink-soft);
-  font-size: 1.05rem;
+  font-size: var(--type-section-copy-size);
+  font-weight: var(--type-section-copy-weight);
+  line-height: var(--type-section-copy-line-height);
 }
 
 .detailList {
@@ -98,11 +102,59 @@
   cite {
     display: block;
     margin-top: 18px;
-    color: var(--color-gold-soft);
+    color: var(--color-gold);
     font-style: normal;
     font-weight: 900;
   }
 }
+
+/* -------------------------------------------------------------------------- */
+/* TEMPORARILY DISABLED                                                        */
+/* Move shimmer animation to all Hero section titles.             */
+/* Reuse this animation during Hero implementation.                            */
+/* -------------------------------------------------------------------------- */
+
+/* 
+.animatedWord {
+  display: inline-block;
+  position: relative;
+  background: linear-gradient(
+    90deg,
+    #b57a16 0%,
+    #e6bd62 25%,
+    #fff3c4 50%,
+    #e6bd62 75%,
+    #b57a16 100%
+  );
+
+  background-size: 220% auto;
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  -webkit-text-fill-color: transparent;
+
+  animation: luxuryShimmer 3s ease-in-out infinite;
+}
+
+@keyframes luxuryShimmer {
+  0% {
+    background-position: 0% center;
+  }
+
+  20% {
+    background-position: 100% center;
+  }
+
+  80% {
+    background-position: 100% center;
+  }
+
+  100% {
+    background-position: 0% center;
+  }
+}
+  */
 
 @media (max-width: 860px) {
   .section {
@@ -112,19 +164,11 @@
   .split {
     grid-template-columns: 1fr;
   }
-
-  .sectionTitle {
-    font-size: 2.35rem;
-  }
 }
 
 @media (max-width: 620px) {
   .container {
     width: min(100% - 28px, 1180px);
-  }
-
-  .sectionTitle {
-    font-size: 2rem;
   }
 
   .testimonialRow {

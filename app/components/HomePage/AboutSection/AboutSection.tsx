@@ -3,7 +3,7 @@ import { Link } from "@remix-run/react";
 import { ArrowUpRight } from "lucide-react";
 import { imageSources } from "../../../data/site";
 import styles from "./AboutSection.module.scss";
- 
+
 export default function AboutSection() {
   return (
     <section className={styles.section} id="about">
@@ -26,8 +26,8 @@ export default function AboutSection() {
             Meenakshi Amman Temple in 1963.
           </p>
           <p className={styles.sectionCopy}>
-            Kannan Sthapathi was a proud student trained 10 years under the legendary Padma Shri
-            awardee{" "}
+            Kannan Sthapathi was a proud student trained 10 years under the
+            legendary Padma Shri awardee{" "}
             <a
               href="https://en.wikipedia.org/wiki/Muthiah_Sthapati"
               target="_blank"
@@ -55,13 +55,13 @@ export default function AboutSection() {
             alt="Sacred stone deity sculpture crafted using traditional Agama principles"
             loading="lazy"
           />
-          <figcaption className={styles.imagePanelCaption}>
+          {/* <figcaption className={styles.imagePanelCaption}>
             <strong>Scriptural precision, artisan execution</strong>
             <span>
               Agama, Vastu, Silpa, sculpture, and structural accountability
               under one system.
             </span>
-          </figcaption>
+          </figcaption> */}
         </figure>
       </div>
     </section>

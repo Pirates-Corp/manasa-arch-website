@@ -1,0 +1,149 @@
+@import "../PortfolioShared.scss";
+
+.faqSection {
+  padding: 96px 0;
+  background-color: $color-white;
+
+  @media (max-width: 860px) {
+    padding: 72px 0;
+  }
+}
+
+.faqGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: 56px;
+
+  @media (max-width: 860px) {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+.faqLeft {
+  .eyebrow {
+    font-family: $font-sans;
+    font-size: 0.78rem;
+    font-weight: 900;
+    line-height: 1.2;
+    letter-spacing: 0.08em;
+    color: $color-gold;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 14px;
+  }
+
+  h2 {
+    font-family: $font-display;
+    font-size: 2.7rem;
+    font-weight: 400;
+    line-height: 1.1;
+    color: $color-ink-primary;
+    margin: 0 0 18px;
+
+    @media (max-width: 860px) {
+      font-size: 2.35rem;
+    }
+
+    @media (max-width: 620px) {
+      font-size: 2rem;
+    }
+  }
+
+  p {
+    font-family: $font-sans;
+    max-width: 760px;
+    font-size: 1.05rem;
+    font-weight: 400;
+    line-height: 1.65;
+    color: $color-text-muted;
+    margin: 0;
+    opacity: 0.8;
+  }
+}
+
+.faqLine {
+  height: 2px;
+  width: 40px;
+  background-color: $color-gold;
+  margin-bottom: 18px;
+}
+
+.faqAccordion {
+  border-bottom: 1px solid rgba($color-outline, 0.3);
+  padding: 20px 0;
+  cursor: pointer;
+
+  summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    outline: none;
+
+    &::-webkit-details-marker {
+      display: none;
+    }
+
+    &:focus-visible {
+      outline: 2px solid $color-gold;
+      outline-offset: 4px;
+    }
+
+    h3 {
+      font-family: $font-display;
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: $color-ink-primary;
+      margin: 0;
+
+      @media (max-width: 620px) {
+        font-size: 18px;
+      }
+    }
+  }
+}
+
+.accordionIcon {
+  font-family: "Material Symbols Outlined", sans-serif;
+  font-size: 24px;
+  color: $color-gold;
+  transition: transform 0.3s ease;
+  user-select: none;
+
+  .faqAccordion[open] & {
+    transform: rotate(45deg);
+  }
+}
+
+.faqAnswer {
+  margin-top: 14px;
+  padding-right: 36px;
+
+  p {
+    font-family: $font-sans;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.8;
+    color: $color-text-muted;
+    margin: 0;
+  }
+
+  @media (max-width: 620px) {
+    padding-right: 0;
+  }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+
+  &:global(.visible),
+  &:global(.active) {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

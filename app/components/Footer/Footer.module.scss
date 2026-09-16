@@ -159,39 +159,8 @@
   }
 }
 
-.ctaButton {
+.ctaButtonOffset {
   margin-top: 24px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  min-height: 52px;
-  padding: 0 28px;
-  color: var(--color-primary);
-  font-size: 0.92rem;
-  font-weight: 800;
-  text-decoration: none;
-  background: linear-gradient(135deg, #f5dfaf 0%, #e8c870 100%);
-  border: 1px solid rgba(200, 145, 44, 0.3);
-  border-radius: 8px;
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.25);
-  transition: transform 200ms ease, box-shadow 200ms ease, background 200ms ease;
-  cursor: pointer;
-
-  &:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
-    background: linear-gradient(135deg, #fbe8c0 0%, #f0d480 100%);
-  }
-
-  &:focus-visible {
-    outline: 2px solid var(--color-gold-soft);
-    outline-offset: 3px;
-  }
-
-  @media (max-width: 620px) {
-    width: 100%;
-  }
 }
 
 /* Column Titles */

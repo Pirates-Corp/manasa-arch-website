@@ -17,9 +17,10 @@
   gap: 8px;
   margin: 0 0 14px;
   color: var(--color-copper);
-  font-size: 0.78rem;
-  font-weight: 900;
-  letter-spacing: 0.08em;
+  font-size: var(--type-eyebrow-size);
+  font-weight: var(--type-eyebrow-weight);
+  line-height: var(--type-eyebrow-line-height);
+  letter-spacing: var(--type-eyebrow-tracking);
   text-transform: uppercase;
 
   &::before {
@@ -35,16 +36,19 @@
   margin: 0;
   color: var(--color-primary);
   font-family: var(--font-display);
-  font-size: 2.7rem;
-  line-height: 1.1;
-  letter-spacing: 0;
+  font-size: var(--type-section-title-size);
+  font-weight: var(--type-section-title-weight);
+  line-height: var(--type-section-title-line-height);
+  letter-spacing: var(--type-section-title-tracking);
 }
 
 .sectionCopy {
   max-width: 760px;
   margin: 18px 0 0;
   color: var(--color-ink-soft);
-  font-size: 1.05rem;
+  font-size: var(--type-section-copy-size);
+  font-weight: var(--type-section-copy-weight);
+  line-height: var(--type-section-copy-line-height);
 }
 
 .cardsGrid {
@@ -74,8 +78,9 @@
     margin: 0;
     color: var(--color-primary);
     font-family: var(--font-display);
-    font-size: 1.32rem;
-    line-height: 1.2;
+    font-size: var(--type-card-title-size);
+    font-weight: var(--type-card-title-weight);
+    line-height: var(--type-card-title-line-height);
   }
 
   p {
@@ -101,9 +106,6 @@
     padding: 72px 0;
   }
 
-  .sectionTitle {
-    font-size: 2.35rem;
-  }
 }
 
 @media (max-width: 1020px) {
@@ -115,10 +117,6 @@
 @media (max-width: 620px) {
   .container {
     width: min(100% - 28px, 1180px);
-  }
-
-  .sectionTitle {
-    font-size: 2rem;
   }
 
   .cardsGrid {

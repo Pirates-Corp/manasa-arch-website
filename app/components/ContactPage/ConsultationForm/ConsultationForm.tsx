@@ -352,6 +352,7 @@ export default function ConsultationForm({
                     <option value="International Temple Consultations">
                       International Temple Consultations
                     </option>
+                    <option value="Others">Others</option>
                   </select>
                 </div>
               </div>
